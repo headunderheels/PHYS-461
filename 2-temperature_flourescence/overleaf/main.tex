@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt,english]{all-in-one} %% TWOSIDE
+\usepackage{ebgaramond}
+\usepackage{multicol}
+\usepackage{lipsum}
+
+
+\doctitle{Modern Physics Laboratory }
+\docsubtitle{Fluorescence} % Experiment name here
+
+\makeatletter
+\title{{\large\textit{}}\\[0.5cm]{\Huge\color{gray}\textsc{\@docsubtitle}}}
+\makeatother
+
+\author{\textbf{Micah Hillman}  \and Cordney Nash  }
+\date{/ / 2024}
+\footext{}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle\vfill
+\end{titlepage}
+\newpage
+
+
+\section*{Introduction}
+\lipsum[1]
+
+
+\begin{multicols}{2}
+
+\section*{Theory}
+
+    \subsection*{Subsection}
+    \lipsum[4-8] \eqref{eq:hello}
+    
+\section*{Results}
+    \lipsum[10-13]
+
+\end{multicols}
+
+\section*{Summary}
+        \lipsum[14]
+        \lipsum[15]
+
+
+\end{document}
