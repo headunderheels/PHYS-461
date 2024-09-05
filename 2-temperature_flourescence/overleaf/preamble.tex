@@ -1,0 +1,20 @@
+\usepackage{newpxtext} % Palatino text font
+\usepackage{eulerpx} % AMS Euler math font by Hermann Zapf
+\usepackage{microtype} % Better text alignment
+\usepackage{ulem} % Underline
+\usepackage{xparse} % Advanced command definitions
+\usepackage{contour} % Outline text
+\usepackage{lipsum} % Dummy text
+\usepackage{mhchem}
+\usepackage{siunitx}
+
+\contourlength{0.3pt} % Default contour length
+
+\NewDocumentCommand{\ul}{O{3pt} O{0.55pt} O{1.75pt} m}{%
+  \begingroup%
+  \renewcommand\ULdepth{#1}%
+  \renewcommand\ULthickness{#2}%
+  \contourlength{#3}%
+  \uline{\phantom{#4}}\llap{\contour{white}{#4}}%
+  \endgroup%
+}
