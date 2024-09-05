@@ -15,14 +15,13 @@
 
   \section*{Methods}{
 
-  \begin{figure}[h]
+  \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.7\linewidth]{experiment_diagram}
-    \caption{Caption formatting test.}
-    \label{fig:setup}
+    \includegraphics[width=\inverseGoldenRatio\linewidth]{experiment_diagram}
+    \caption{A diagrammatic representation of the experimental setup.}\label{fig:setup}
   \end{figure}
 
-    To modulate its temperature, the phosphor sample was mounted on a Peltier device attached to a manually-variable current source. Focused light from a pulsing laser diode shone on the surface of the sample, causing fluorescence at the \SI{514}{\nm}, \ce{^{5}D2} emission line (among others). Fluoresced light was then band-passed and focused into a photomultiplier tube (PMT). The PMT-amplified fluorescence response signal was then passed with the original impulse signal to be overlayed on a digital oscilloscope for data collection.
+    To modulate its temperature, the phosphor sample was mounted on a Peltier device attached to a manually-variable current source (\textbf{Figure~\ref*{fig:setup},~\(\bf{D}\)}). Focused light from a pulsing laser diode (\(\bf{A}\)) was reflected (\(\bf{B}\)) and focused (\(\bf{C}\)) on the surface of the sample, causing fluorescence at the \SI{514}{\nm}, \ce{^{5}D2} emission line (among others). Fluoresced light was then band-passed (\(\bf{E}\)) and focused (\(\bf{F}\)) into a photomultiplier tube (PMT) (\(\bf{G}\)). The PMT-amplified fluorescence response signal was then passed with the original impulse signal to be overlayed on a digital oscilloscope for data collection.
     
     After setting the pulse width of the laser diode to approximately \SI{1}{\micro\second}, we began varying the current supplied to the Peltier device to set the temperature at approximate steps of \SI{10}{\degreeCelsius} ranging from \SI{-10}{\degreeCelsius} to \SI{100}{\degreeCelsius}. Three snapshots of oscilloscope data were collected at each increment, where the oscilloscope timing window was variably tuned to meet the following specifications:
       
@@ -30,7 +29,6 @@
         \item maximize timing resolution by including as many non-zero response values as possible, and
         \item include information about the fluorescence response's offset prior to the laser impulse (for offset subtraction during analysis).
       \end{enumerate}
-    
     
     
   }
