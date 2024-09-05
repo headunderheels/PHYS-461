@@ -1,0 +1,4 @@
+PWD /Users/rhillman/school/phys461/2-temperature_flourescence/overleaf
+INPUT /Users/rhillman/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
+INPUT /Users/rhillman/school/phys461/2-temperature_flourescence/overleaf/preamble.tex
+OUTPUT preamble.log
