@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+
 \input{preamble.tex}
 
 \title{Temperature Effects on Phosphor Fluorescence Lifetime}
@@ -9,20 +10,29 @@
   \maketitle
 
   \section*{Introduction}{
-    Europium-doped phosphor compounds can exhibit temperature-dependent flourescence lifetimes for certain emission lines. In europium-doped lanthanum oxysulfide (\ce{La2O2S{:}Eu}), the variable overlap of a charge-transfer (CT) state with the \ce{^{5}D_{i}} energy levels leads to an increased availability of non-radiative de-excitation pathways as temperature is increased. For lower temperatures, the CT state becomes less available and radiative emission dominates, leading to longer fluorescence lifetimes. We measured fluorescence lifetimes for \ce{La2O2S{:}Eu} for a range of temperatures within \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}, and observed a (linear/logarithmic) decrease in decay lifetimes for increasing temperatures.
+    Europium-doped phosphor compounds can exhibit temperature-dependent flourescence lifetimes for certain emission lines. In europium-doped lanthanum oxysulfide (\ce{La2O2S{:}Eu}), the variable overlap of a charge-transfer (CT) state with the \ce{^{5}D_{i}} energy levels leads to an increased availability of non-radiative de-excitation pathways as temperature is increased. For lower temperatures, the CT state becomes less available and radiative emission dominates, leading to longer fluorescence lifetimes. We measured fluorescence lifetimes for a sample of \ce{La2O2S{:}Eu} between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}, and observed a (linear/logarithmic) decrease in decay lifetimes for increasing temperatures.
   }
 
   \section*{Methods}{
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{experiment_diagram}
+    \caption{Caption formatting test.}
+    \label{fig:setup}
+  \end{figure}
+
     To modulate its temperature, the phosphor sample was mounted on a Peltier device attached to a manually-variable current source. Focused light from a pulsing laser diode shone on the surface of the sample, causing fluorescence at the \SI{514}{\nm}, \ce{^{5}D2} emission line (among others). Fluoresced light was then band-passed and focused into a photomultiplier tube (PMT). The PMT-amplified fluorescence response signal was then passed with the original impulse signal to be overlayed on a digital oscilloscope for data collection.
     
     After setting the pulse width of the laser diode to approximately \SI{1}{\micro\second}, we began varying the current supplied to the Peltier device to set the temperature at approximate steps of \SI{10}{\degreeCelsius} ranging from \SI{-10}{\degreeCelsius} to \SI{100}{\degreeCelsius}. Three snapshots of oscilloscope data were collected at each increment, where the oscilloscope timing window was variably tuned to meet the following specifications:
+      
       \begin{enumerate}
         \item maximize timing resolution by including as many non-zero response values as possible, and
-        \item include information about the fluorescence response's offset prior to the laser impulse for later offset subtraction.
+        \item include information about the fluorescence response's offset prior to the laser impulse (for offset subtraction during analysis).
       \end{enumerate}
     
     
-
+    
   }
 
   \section*{Results}{

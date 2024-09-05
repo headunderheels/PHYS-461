@@ -7,6 +7,9 @@
 \usepackage{lipsum} % Dummy text
 \usepackage{mhchem}
 \usepackage{siunitx}
+\usepackage{graphicx} 
+  \graphicspath{{./images/}}
+\usepackage{subcaption}
 
 \contourlength{0.3pt} % Default contour length
 
@@ -18,3 +21,9 @@
   \uline{\phantom{#4}}\llap{\contour{white}{#4}}%
   \endgroup%
 }
+
+\DeclareCaptionFormat{custom}
+{%
+    \textbf{#1.} \textit{#3}
+}
+\captionsetup{format=custom}
