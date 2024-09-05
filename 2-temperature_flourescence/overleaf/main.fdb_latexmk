@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725570866.00833 "/Users/rhillman/school/phys461/2-temperature_flourescence/overleaf/main.tex" "main.pdf" "main" 1725570867.49945 0
+["pdflatex"] 1725571048.39234 "/Users/rhillman/school/phys461/2-temperature_flourescence/overleaf/main.tex" "main.pdf" "main" 1725571049.72543 0
   "/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/jknappen/ec/ecrm0700.tfm" 1683752952.67351 3168 c739b83da3134ef1007979877c1089cf ""
   "/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/jknappen/ec/ecrm0900.tfm" 1683752952.67406 3156 6d4f5755d77638125f6f89de4f3bb757 ""
   "/Library/Application Support/MiKTeX/texmfs/install/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1683752952.6748 3152 4850ff0163852b7fab34bd55e1197f28 ""
@@ -114,10 +114,10 @@
   "/Users/rhillman/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ulem/ulem.sty" 1725493097.35619 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
   "/Users/rhillman/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xpatch/xpatch.sty" 1701790249.22686 8510 9829c50ab36366d4da41fdc87e7d0699 ""
   "/Users/rhillman/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xstring/xstring.sty" 1701790262.57935 123 a302f2c651a95033260db60e51527ae8 ""
-  "/Users/rhillman/school/phys461/2-temperature_flourescence/overleaf/main.tex" 1725570865.84998 2747 046aae38b4c2f4947dbd9ea42da18c43 ""
+  "/Users/rhillman/school/phys461/2-temperature_flourescence/overleaf/main.tex" 1725571047.4229 2740 84db8fda28c7ecf46a1cdef965b43c08 ""
   "images/experiment_diagram.jpg" 1725557420 164851 fed2a18a1e5197cd3e06f472ed3de569 ""
-  "main.aux" 1725570867.27989 290 6b922fddd7970b76eef36c3f66cfc15d "pdflatex"
-  "main.tex" 1725570865.84998 2747 046aae38b4c2f4947dbd9ea42da18c43 ""
+  "main.aux" 1725571049.50657 290 6b922fddd7970b76eef36c3f66cfc15d "pdflatex"
+  "main.tex" 1725571047.4229 2740 84db8fda28c7ecf46a1cdef965b43c08 ""
   "preamble.tex" 1725570760.95922 854 b9a5fd0bfe1c91baa08a3098b1b4cc49 ""
   (generated)
   "main.aux"
