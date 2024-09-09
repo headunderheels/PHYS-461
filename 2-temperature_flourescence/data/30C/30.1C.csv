@@ -1,4 +1,4 @@
-Record Length,2500,Points,-600.000021223E-9,-1.6000000E-3,,Record Length,2500,Points,-600.000021223E-9,199.99998808E-3,
+Record Length,2500,Points,response time,response voltage,,Record Length,2500,Points,signal time,signal voltage,
 Sample Interval,9.999999939E-9,s,-590.000013290E-9,-1.6000000E-3,,Sample Interval,9.999999939E-9,s,-590.000013290E-9,199.99998808E-3,
 Trigger Point,60.000002487,Samples,-580.000005357E-9,-1.6000000E-3,,Trigger Point,60.000002487,Samples,-580.000005357E-9,199.99998808E-3,
 ,,,-569.999997424E-9,-1.6000000E-3,,,,,-569.999997424E-9,199.99998808E-3,
