@@ -1,5 +1,5 @@
 \usepackage{newpxtext} % Palatino text font
-\usepackage{eulerpx} % AMS Euler math font by Hermann Zapf
+\usepackage{newpxmath} % Palatino math font
 \usepackage{microtype} % Better text alignment
 \usepackage{ulem} % Underline
 \usepackage{xparse} % Advanced command definitions
@@ -25,7 +25,7 @@
 
 \DeclareCaptionFormat{custom}
 {%
-    \textbf{#1.} \textit{#3}
+    \textbf{#1.} #3
 }
 \captionsetup{format=custom}
 

@@ -32,7 +32,22 @@
   }
 
   \section*{Results}{
-    \lipsum[1]
-  }
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{39.9C_fit.png}
+        \caption{An example of fit data. A signal from the LED (shown in gray) elicits some response from the phosphor (black). A linear function was fit to the response curve and and the decay constant $\tau$ was calculated using equation\,\ref{eq:time-constant}.}
+        \label{fig:V-vs-t}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{image.png}
+        \caption{Natural logarithm of decay lifetime, $\ln(\tau),$ as a function of phosphor temperature, $T$, between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}.  Also included with errors as a table.} %TODO: actually include the table.
+        \label{fig:tau-vs-T}
+    \end{figure}
 
+    \begin{equation}
+        \tau = -\frac{1}{m}.
+        \label{eq:time-constant}
+    \end{equation}
+    }
 \end{document}
