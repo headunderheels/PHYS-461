@@ -1,8 +1,11 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{report}
 
 \input{preamble.tex}
+\addbibresource{bib.bib}
 
-\title{Temperature Effects on Phosphor Fluorescence Lifetime}
+
+\title{Temperature Effects on Phosphor Fluorescence Lifetime \\\vspace{0.5cm}
+\large{PHYS 461}}
 \date{September 16, 2024}
 \author{\ul{Micah Hillman} \and Cordney Nash}
 
@@ -10,14 +13,14 @@
   \maketitle
 
   \section*{Introduction}{
-    Europium-doped phosphor compounds can exhibit temperature-dependent flourescence lifetimes for certain emission lines. In europium-doped lanthanum oxysulfide (\ce{La2O2S{:}Eu}), the variable overlap of a charge-transfer (CT) state with the \ce{^{5}D_{i}} energy levels leads to an increased availability of non-radiative de-excitation pathways as temperature is increased. For lower temperatures, the CT state becomes less available and radiative emission dominates, leading to longer fluorescence lifetimes. We measured fluorescence lifetimes for a sample of \ce{La2O2S{:}Eu} between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}, and observed a (linear/logarithmic) decrease in decay lifetimes for increasing temperatures.
+    Europium-doped phosphor compounds can exhibit temperature-dependent fluorescence lifetimes for some emission lines. In europium-doped lanthanum oxysulfide (\ce{La2O2S{:}Eu}), the variable overlap of a charge-transfer (CT) state with the \ce{^{5}D_{i}} energy levels leads to an increased availability of non-radiative de-excitation pathways as temperature is increased. For lower temperatures, the CT state becomes less available, and radiative emission dominates, leading to longer fluorescence lifetimes \cite{parks}. We measured fluorescence lifetimes for a sample of \ce{La2O2S{:}Eu} between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}, and observed an exponential decrease in decay lifetimes for increasing temperatures.
   }
 
   \section*{Methods}{
 
-  \begin{figure}[ht]
+  \begin{figure}[h]
     \centering
-    \includegraphics[width=\inverseGoldenRatio\pdfpagewidth]{experiment_diagram}
+    \includegraphics[width=0.7\linewidth]{experiment_diagram}
     \caption{A diagrammatic representation of the experimental setup.}\label{fig:setup}
   \end{figure}
 
@@ -31,23 +34,29 @@
       \end{enumerate}
   }
 
-  \section*{Results}{
-    \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{39.9C_fit.png}
-        \caption{An example of fit data. A signal from the LED (shown in gray) elicits some response from the phosphor (black). A linear function was fit to the response curve and and the decay constant $\tau$ was calculated using equation\,\ref{eq:time-constant}.}
-        \label{fig:V-vs-t}
-    \end{figure}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{image.png}
-        \caption{Natural logarithm of decay lifetime, $\ln(\tau),$ as a function of phosphor temperature, $T$, between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}.  Also included with errors as a table.} %TODO: actually include the table.
-        \label{fig:tau-vs-T}
+  \section*{Results}
+
+    Time series data including signal (LED) and response (PMT) voltages collected from the oscilloscope were used to create \texttt{pandas} data frames for visualization and analysis. There was a baseline offset for every measurement of the response voltage $V_{\mathrm{resp.}}$, which we removed by calculating the average of the initial response voltage values and subtracting this value from all $V_{\mathrm{resp.}}$ values globally. To perform a linear fit, we plotted $\ln(V_{\mathrm{resp.}})$ as a function of time (Figure\,\ref{fig:f1}). A line of best fit, along with its fitting uncertainty, was determined for each time series. These fitting parameters were then used to calculate a decay constant, $\tau(T)$, according to the following relation:
+    \begin{equation}
+        \tau = -\frac{1}{m}, \label{eq}
+    \end{equation}
+    where $m$ is the slope of the linear fit. Fitting errors were propagated using the python \texttt{uncertainties} package.
+
+    \begin{figure}[tbh]
+        \centering 
+        \includegraphics[width=.7\linewidth]{timeseries-fit.png} 
+        \caption{An example of fitted data. A signal from the LED (shown in gray) elicits a response from the phosphor (black). A linear function was fit to the response curve, and the decay constant $\tau$ was calculated using Equation\,\ref{eq}.} 
+        \label{fig:f1} 
     \end{figure}
 
-    \begin{equation}
-        \tau = -\frac{1}{m}.
-        \label{eq:time-constant}
-    \end{equation}
-    }
+    \begin{figure}[tbh] 
+        \centering 
+        \includegraphics[width=.7\linewidth]{image.png} 
+        \caption{Phosphor decay lifetime, $\tau$, as a function of phosphor temperature, $T$, between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}. All error bars are scaled by a factor of $e^{3}$ for visibility. Errors are also presented in tabular form.} \label{fig:fig2}
+    \end{figure}
+
+At each temperature value, we averaged our three calculated time constants and found the standard error of the mean for each point, combining it in quadrature with the mean of the fitting uncertainties\footnote{Our error bars were quite small relative to the change in temperature, so they were artificially inflated when plotting.}. On a logarithmic axis, we plotted the decrease in fluorescence as a function of temperature, finding that the decay constant, $\tau$, decreased exponentially with temperature within this region (Figure\,\ref{fig:fig2}), indicating the increasing availability of non-fluorescent de-excitation pathways for the \ce{^{5}D_{i}} energy levels at higher temperatures.
+
+\printbibliography
+
 \end{document}
