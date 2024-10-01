@@ -1,15 +1,18 @@
 \documentclass[a4paper,12pt,english]{all-in-one} %% TWOSIDE
 \usepackage{ebgaramond}
-\usepackage{amsmath} 
+\usepackage{amsmath}
+\renewcommand\theequation{\arabic{equation}}
 \usepackage{newtxmath}
 \usepackage{multicol}
 \usepackage{lipsum}
 \usepackage{subfig}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\newcommand\tab[1][1cm]{\hspace*{#1}} 
-\newtagform{noparen}{}{}
-\usetagform{noparen}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{microtype}
+\usepackage[version=4]{mhchem}
+\usepackage{textcomp}
+\usepackage{siunitx}
 
 \doctitle{Modern Physics Laboratory }
 \docsubtitle{X-ray Bragg Diffraction} % Experiment name here
@@ -18,7 +21,7 @@
 \title{{\large\textit{Modern Physics Laboratory | PHYS-461}}\\[0.5cm]{\Huge\color{gray}\textsc{\@docsubtitle}}}
 \makeatother
 
-\author{\textbf{Cordney Nash}  \and Micah Hillman  }
+\author{\textbf{Cordney Nash}  \and Micah Hillman}
 \date{September 30, 2024}
 \footext{}
 
@@ -34,43 +37,58 @@
 
 \section*{Introduction}
 {
-\tab This experiment explores the constructive diffraction of X-rays incidented on Lithium Fluoride (LiF), Sodium chloride (NaCl) crystals and powdered crystalline samples. The resulting diffraction patterns show sharp maxima at specific angles, which are dependent on the wavelength of the X-rays and the crystal structure. A Geiger-Müller tube is used to detect and measure the diffracted X-rays as a function of the scattering angle. From here different properties of the crystal can be determined, such as the distance between successive planes.
+This experiment explores the constructive diffraction of X-rays incidented on Lithium Fluoride (\ce{LiF}), Sodium chloride (\ce{NaCl}) crystals and powdered crystalline samples. The resulting diffraction patterns show sharp maxima at specific angles according to the Bragg condition, dependent on the wavelength of the X-rays and the crystal structure. A Geiger-Müller tube is used to detect and measure the diffracted X-rays as a function of the scattering angle. From here, various properties of the crystal can be determined, such as the distance between successive planes.
 }
 
-\begin{figure}[h!]
+\begin{figure}[tbh]
     \centering
-    \includegraphics[width=0.8\linewidth]{3-xray/overleaf/Images/xray_diagram.png}
+    \includegraphics[width=0.8\linewidth]{3-xray/overleaf/images/xray_diagram.png}
     \caption{ \scriptsize{ Control Panel (CP), Copper X-ray Tube (XT), Collimation Wall (CL), Rotating Table (RT), Detector Tube (DT), Computer (COM).
-    } }
-    \label{fig:enter-label}
+    }}
+    \label{fig:xray-diagram}
 \end{figure}
 
 \begin{multicols}{2}
 
 \section*{Theory \& Procedure}
 {
-\tab When stimulated, a copper anode emits two distinct characteristic X-rays: $K_\alpha$ and $K_\beta$. The $K_\alpha$ radiation, with a wavelength of 1.542 Å, occurs when an electron transitions from the $n=2$ shell to a vacant $n=1$ shell. In contrast, the $K_\beta$ radiation, with a wavelength of 1.392 Å, arises when an electron transitions from the $n=3$ shell to a vacant $n=1$ shell.
+When stimulated, a copper anode emits two distinct characteristic X-rays: $K_\alpha$ and $K_\beta$. The $K_\alpha$ radiation, with a wavelength of 1.542 Å, occurs when an electron transitions from the $n=2$ shell to a vacant $n=1$ shell. In contrast, the $K_\beta$ radiation, with a wavelength of 1.392 Å, arises when an electron transitions from the $n=3$ shell to a vacant $n=1$ shell.
 
-Given the extremely short wavelengths of X-rays, it is evident that a diffraction grating on the order of atomic dimensions is necessary to analyze the outgoing radiation effectively. To achieve this, we utilized LiF and NaCl crystals, along with a powdered LiF sample.
+Given the extremely short wavelengths of X-rays, it is evident that a diffraction grating on the order of atomic dimensions is necessary to analyze the outgoing radiation effectively. To achieve this, we utilized \ce{LiF} and \ce{NaCl} crystals, along with a powdered LiF sample.
 
 Crystalline materials have a periodic atomic structure that forms a lattice. In this lattice arrangement, when light is reflected from successive atomic planes, constructive interference occurs according to Bragg's Law, as described by Eq.\eqref{eq:1}. However, some of the X-ray's energy can continue to travel through the crystal.
 \begin{equation}\label{eq:1}
     n\lambda = 2dsin\theta
 \end{equation}
 Where $d$ is the spacing between planes, $\theta$ is the angle the light is reflected back relative to the plane, n is the order of diffraction, and $\lambda$ is the wavelength.
-(ADD more theory)
 
-To begin the experiment, we powered the Leybold Didactic (LD) X-ray apparatus. This apparatus holds 3 different sections: (1) the control panel, used to adjust experimental parameters, (2) the X-ray tube housing a copper anode, and (3) a Geiger-Müller detector positioned with the experimental sample. The apparatus also features lead glass shielding which controlls the voltage switch (to the copper anode), allowing visibility while ensuring protection from X-ray exposure. Additionally, this whole device is connected to a computer where we can externally control starting parameters. 
+Probing regular crystal structures with high-energy EM radiation allows us to study the near atomic scale structure of these materials, and record plane spacing in various orientations. The compounds \ce{LiF} and \ce{NaCl} both form face-centered cubic crystal structures, which are more highly symmetric than many other crystal structures; this property of these materials allows us to perform diffraction experiments using powdered samples with random crystal orientations. Using more complex crystals in a powdered form becomes more difficult, because the small-scale crystal structure is in general anisotropic, but a powder makes them appear macroscopically isotropic, interfering with any potential measurements
 
-For the measurements, we placed the desired sample on a rotating stage, which rotates at an angle of 2$\theta$ relative to the detector’s movement. Initial measurements were taken with the two crystal samples, which took approximately 15 minutes each. The powdered sample, due to its powdered nature, required around 3 hours for viable measurements. Before each run, we reset the system to ensure the starting angle was calibrated at $\theta$ = 0. From here, we set our starting parameters, and started measuring.  
+To begin the experiment, we powered the Leybold Didactic (LD) X-ray apparatus. This apparatus holds 3 different sections: (1) the control panel, used to adjust experimental parameters, (2) the X-ray tube housing a copper anode, and (3) a Geiger-Müller detector positioned with the experimental sample. The apparatus also features lead glass shielding which controls the voltage switch (to the copper anode), allowing visibility while ensuring protection from X-ray exposure. Additionally, this whole device is connected to a computer where we can externally control starting parameters. 
+
+For the measurements, we placed the desired sample on a rotating stage, which rotates at an angle of 2$\theta$ relative to the detector’s movement. Initial measurements were taken with the two crystal samples, which took approximately 15 minutes each. The powdered sample, due to its powdered nature, required around 3 hours for viable measurements. Before each run, we reset the system to ensure the starting angle was calibrated at $\theta$ = 0. From here, we set our starting parameters, and started measuring. 
 }
+
+% {
+% Crystalline materials are characterized by a periodic atomic structure which forms a lattice. When collimated, light is reflected from successive atomic planes and constructive interference occurs according to the Bragg Law:
+% \begin{equation}\label{bragg}
+% n\lambda = 2d\sin\theta
+% \end{equation}
+% where $d$ is the spacing between planes, $\theta$ is the angle the light is reflected back relative to the plane, $n$ is the order of diffraction, and $\lambda$ is the wavelength.  However, some of the X-ray's energy can continue to travel through the crystal. Bragg's Law can allow us to identify inference maxima but in this case we use it to find the plane spacing $d$ of scattered X-rays as a function of the angle, $\theta$. 
+
+% Given the extremely short wavelengths of X-rays, a diffraction grating on the order of atomic dimensions is necessary to effectively analyze the outgoing radiation. To achieve this, we utilized \ce{LiF} and \ce{NaCl} crystals, along with a powdered \ce{LiF} sample. 
+% In order to create X-rays, the experimental apparatus utilizes a copper anode, which emits two distinct characteristic X-rays when stimulated: $K_\alpha$ and $K_\beta$. The $K_\alpha$ radiation, with a wavelength of 1.542 Å, occurs when an electron transitions from the $n=2$ shell to a vacant $n=1$ shell, and the $K_\beta$ radiation, with a wavelength of 1.392 Å, arises when an electron transitions from the $n=3$ shell to a vacant $n=1$ shell.
+
+% Probing regular crystal structures with high-energy EM radiation allows us to study the near atomic scale structure of these materials, and record plane spacing in various orientations. The compounds \ce{LiF} and \ce{NaCl} both form face-centered cubic crystal structures, which are more highly symmetric than many other crystal structures; this property of these materials allows us to perform diffraction experiments using powdered samples with random crystal orientations. Using more complex crystals in a powdered form becomes more difficult, because the small-scale crystal structure is in general anisotropic, but a powder makes them appear macroscopically isotropic, interfering with any potential measurements.
+
+% To begin the experiment, we powered the Leybold Didactic (LD) X-ray apparatus. This apparatus holds 3 different sections: (1) the control panel, used to adjust experimental parameters, (2) the X-ray tube housing a copper anode, and (3) a Geiger-Müller detector positioned with the experimental sample. The apparatus also features lead glass shielding which controls the voltage switch (to the copper anode), allowing visibility while ensuring protection from X-ray exposure. Additionally, this whole device is connected to a computer where we can externally control starting parameters. 
+
+% For the measurements, we placed the desired sample on a rotating stage, which rotates at an angle of 2$\theta$ relative to the detector’s movement. All measurements were recorded in 0.1\textdegree\ increments from 5\textdegree\ to 60\textdegree. For the whole-crystal samples, timing increments of \SI{0.2}{\second} were used. For the powdered sample, the step duration was increased to \SI{14}{\second} due to the random (isotropic) orientation\footnote{Longer exposure time at each angular step is required to compensate for the reduced intensity of diffracted light.} of the many tiny crystals. An automatic calibration system ensured that the starting angle was set at $\theta = 0$ for each run. From here, we set our starting parameters, and started measuring.  
+% }
     
 \section*{Analysis \& Results}
 {
-When analyzing the diffraction data for crystals you first notice that each peak occurs in pairs, with the less intense peak consistently corresponding to $K_\beta$. Each pair after should be understood as a increase in the order of diffraction. By utilizing the measured angle $\theta$, the diffraction order, and the known wavelength $\lambda$, we can apply Eq.\eqref{eq:1} to calculate the plane spacing $d$. From this, the lattice constant can be determined with $2d$.
-
-
-
+When analyzing the diffraction data for crystals you first notice that each peak occurs in pairs, with the less intense peak consistently corresponding to $K_\beta$. Each pair after should be understood as a increase in the order of diffraction. By utilizing the measured angle $\theta$, the diffraction order, and the known wavelength $\lambda$, we can apply the Bragg condition to calculate the plane spacing $d$. From this, the lattice constant can be determined with $2d$.
 % \begin{table*}[]
 % \parbox{.40\linewidth}{
 % % \centering
@@ -81,7 +99,7 @@ When analyzing the diffraction data for crystals you first notice that each peak
 % 3 & 44 & 2 & $K_\beta$ & 9.67E-11	& 1.93E-10\\
 % 4 & 49 & 2 & $K_\alpha$ & 1.16E-10 & 2.33E-10 \\   
 % \end{tabular}
-% \caption{Crystalline information for the LiF sample \label{LiF}}
+% \caption{Crystalline information for the \ce{LiF} sample \label{\ce{LiF}}}
 % }
 % \hfill
 % \parbox{.45\linewidth}{
@@ -93,13 +111,13 @@ When analyzing the diffraction data for crystals you first notice that each peak
 % 3 & 29 & 2 & $K_\beta$ & 2.87E-10 & 5.74E-10\\
 % 4 & 33 & 2 & $K_\alpha$ & 2.83E-10 & 5.66E-10 \\  
 % \end{tabular}
-% \caption{Crystalline information for the NaCl sample.t \label{NaCl}}
+% \caption{Crystalline information for the \ce{NaCl} sample.t \label{\ce{NaCl}}}
 % }
 % \end{table*}
 
-The results from the LiF and NaCl crystal, can be seen in Table \ref{tab:lif} and \ref{tab:nacl}. The accepted lattice constant is 4.05 {\AA} and 5.68 {\AA} for LiF and NaCl respectfully. Our measured lattice constant for Nacl is exactly the same as the accepted value, but for LiF this measured value is not same. We suspect one of the systematic errors that may have caused this is that the sample may not have been as smooth as it needed to be. This could cause the x-rays to interact with the atoms in complicated ways at the surface. 
+The results from the \ce{LiF} and \ce{NaCl} crystal are included in tables \ref{tab:LiF} and \ref{tab:NaCl}. The accepted lattice constant is 4.05 {\AA} and 5.68 {\AA} for \ce{LiF} and \ce{NaCl} respectively. Our measured lattice constant for \ce{NaCl} is exactly the same as the accepted value, but for \ce{LiF} this measured value is not same. We suspect one of the systematic errors that may have caused this is that the sample may not have been as smooth as it needed to be. This could cause the x-rays to interact with the atoms in complicated ways at the surface. 
 
-
+The results from the \ce{LiF} powder are shown in table \ref{tab:powder}. Peak 2 and 3 are reflections from the adhesive holding the powder together, this is the reason as to why it has very little data given. The accepted lattice constant value of 4.03E-10 is not the same as none of the measured value or the mean value. We believe this is because when choosing a value for the angle of each peak, we were not as accurate as we needed. 
 }
 
 
@@ -107,10 +125,10 @@ The results from the LiF and NaCl crystal, can be seen in Table \ref{tab:lif} an
 
 \section*{Summary}
 {
-In conclusion, this experiment demonstrated the principles of constructive X-ray diffraction on crystals and powdered crystalline samples. By using a copper anode to emit characteristic X-rays and a sophisticated detector, we observed distinct diffraction patterns. These patterns, governed by Bragg’s Law, allowed us to calculate key crystal properties such as the spacing between atomic planes and the lattice constant. These patterns also allowed us to gain a better understanding of how Miller Indices can describe the interaction X-rays have with different planes with varying orientations. In all this experiment provided valuable insights into crystal structure and how X-rays scatter based on the arrangement and orientation of crystalline planes.
+In conclusion, this experiment demonstrated the principles of constructive X-ray diffraction on crystals and powdered crystalline samples. By using a copper anode to emit characteristic X-rays and a sophisticated detector, we observed distinct diffraction patterns. These patterns, governed by Bragg’s Law, allowed us to calculate key crystal properties such as the spacing between atomic planes and the lattice constant. These patterns also allowed us to gain a better understanding of how Miller Indices can describe the interaction X-rays have with different planes with varying orientations. In all, this experiment provided valuable insights into crystal structure and how X-rays scatter based on the arrangement and orientation of crystalline planes.
 }
 
-\begin{table*}[htb]
+\begin{table*}[]
 \centering
 \begin{tabular}{c|c|c|c|c|c|c|c}
 peak \# & angle ($^\circ$) & n & X-ray, $\lambda$ (m) & $d$ (m) & $a_0$ (m) & $\overline{a_0}$ (m) & $\overline{a_0}$ (\AA) \\ \hline
@@ -119,11 +137,11 @@ peak \# & angle ($^\circ$) & n & X-ray, $\lambda$ (m) & $d$ (m) & $a_0$ (m) & $\
 3 & 44 & 2 & $K_\beta$ & 9.67E-11	& 1.93E-10\\
 4 & 49 & 2 & $K_\alpha$ & 1.16E-10 & 2.33E-10 \\   
 \end{tabular}
-\caption{Crystalline information for the LiF crystal. }
-\label{tab:lif}
+\caption{Information for the \ce{LiF} crystal.}
+\label{tab:LiF}
 \end{table*}
 
-\begin{table*}[htb]
+\begin{table*}[]
 \centering
 \begin{tabular}{c|c|c|c|c|c|c|c|c}
 peak \# & angle ($^\circ$) & n & X-ray, $\lambda$ (m) & $d$ (m) & $a_0$ (m) & $\overline{a_0}$ (m) & $\overline{a_0}$ (\AA) \\ \hline
@@ -132,10 +150,30 @@ peak \# & angle ($^\circ$) & n & X-ray, $\lambda$ (m) & $d$ (m) & $a_0$ (m) & $\
 3 & 29 & 2 & $K_\beta$ & 2.87E-10 & 5.74E-10\\
 4 & 33 & 2 & $K_\alpha$ & 2.83E-10 & 5.66E-10 \\  
 \end{tabular}
-\caption{Crystalline information for the NaCl crystal.}
-\label{tab:nacl}
+\caption{Information for the \ce{NaCl} crystal.}
+\label{tab:NaCl}
 \end{table*}
 
+\begin{table*}[]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+peak \# & angle ($^\circ$) & h & k & l & X-ray type & $a_0$ & $\overline{a_0}$ (\AA) & $\sigma_{a_0}$ & $\sigma_{a_0}$/$\overline{a_0}$  \\ \hline
+1 & 7 & 4  & 4  & 4  & alpha & 4.3831E-09  & 8.2765E-10 & 1.25E-09 & 1.5098\\
+2 & 8 & & &   & none & & & & \\
+3 & 12 & & &   & none & & & & \\
+4 & 16 & 0 & 0 & 2 & beta & 5.0501E-10 & & & \\
+5 & 18 & 0 & 0 & 2 & beta & 4.5046E-10 & & & \\
+6 & 22 & 0 & 0 & 2 & alpha & 4.1163E-10 & & & \\
+7 & 28 & 0 & 2 & 2 & beta & 4.1932E-10 & & & \\
+8 & 33 & 0 & 2 & 2 & alpha & 4.0040E-10 & & & \\
+9 & 39 & 0 & 2 & 4 & alpha & 4.2440E-10 & & & \\
+10 & 41 & 0 & 0 & 4 & beta & 4.2435E-10 & & & \\
+11 & 49 & 0 & 2 & 4 & beta & 4.1242E-10 & & & \\
+12 & 58 & 2 & 2 & 4 & alpha & 4.4539E-10 & & &        
+\end{tabular}
+\caption{Information for the \ce{LiF} crystalline powder.}
+\label{tab:powder}
+\end{table*}
 
 
 \end{document}

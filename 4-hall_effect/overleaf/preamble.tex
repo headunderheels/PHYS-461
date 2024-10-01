@@ -1,0 +1,35 @@
+\usepackage{newpxtext} % Palatino text font
+\usepackage{newpxmath} % Palatino math font
+\usepackage{microtype} % Better text alignment
+\usepackage[normalem]{ulem} % Underline
+\usepackage{xparse} % Advanced command definitions
+\usepackage{contour} % Outline text
+\usepackage{lipsum} % Dummy text
+\usepackage{mhchem}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[style=numeric, backend=biber]{biblatex} %Imports biblatex package
+
+\graphicspath{{./images/}}
+
+\contourlength{0.3pt} % Default contour length
+
+\NewDocumentCommand{\ul}{O{3pt} O{0.55pt} O{1.75pt} m}{%
+  \begingroup%
+  \renewcommand\ULdepth{#1}%
+  \renewcommand\ULthickness{#2}%
+  \contourlength{#3}%
+  \uline{\phantom{#4}}\llap{\contour{white}{#4}}%
+  \endgroup%
+}
+
+\DeclareCaptionFormat{custom}
+{%
+    \textbf{#1.} #3
+}
+\captionsetup{format=custom}
+
+\newcommand{\goldenRatio}{1.6180}
+\newcommand{\inverseGoldenRatio}{0.6180}
