@@ -24,7 +24,7 @@
     \caption{A diagrammatic representation of the experimental setup.}\label{fig:setup}
   \end{figure}
 
-    To modulate its temperature, the phosphor sample was mounted on a Peltier device attached to a manually-variable current source (\textbf{Figure~\ref*{fig:setup},~\(\bf{D}\)}). Focused light from a pulsing laser diode (\(\bf{A}\)) was reflected (\(\bf{B}\)) and focused (\(\bf{C}\)) on the surface of the sample, causing fluorescence at the \SI{514}{\nm}, \ce{^{5}D2} emission line (among others). Fluoresced light was then band-passed (\(\bf{E}\)) and focused (\(\bf{F}\)) into a photomultiplier tube (PMT) (\(\bf{G}\)). The PMT-amplified fluorescence response signal was then passed with the original impulse signal to be overlayed on a digital oscilloscope for data collection.
+    To modulate its temperature, the phosphor sample was mounted on a Peltier device attached to a manually-variable current source (\textbf{Figure~\ref*{fig:setup},~\(\bf{D}\)}). Focused light from a \SI{365}{\nano \meter} pulsing laser diode (\(\bf{A}\)) was reflected (\(\bf{B}\)) and focused (\(\bf{C}\)) on the surface of the sample, causing fluorescence at the \SI{514}{\nm}, \ce{^{5}D2} emission line (among others). Fluoresced light was then band-passed (\(\bf{E}\)) and focused (\(\bf{F}\)) into a photomultiplier tube (PMT) (\(\bf{G}\)). The PMT-amplified fluorescence response signal was then passed with the original impulse signal to be overlayed on a digital oscilloscope for data collection.
     
     After setting the pulse width of the laser diode to approximately \SI{1}{\micro\second}, we began varying the current supplied to the Peltier device to set the temperature at approximate steps of \SI{10}{\degreeCelsius} ranging from \SI{-10}{\degreeCelsius} to \SI{100}{\degreeCelsius}. Three snapshots of oscilloscope data were collected at each increment, where the oscilloscope timing window was variably tuned to meet the following specifications:
       
@@ -52,10 +52,34 @@
     \begin{figure}[tbh] 
         \centering 
         \includegraphics[width=.7\linewidth]{image.png} 
-        \caption{Phosphor decay lifetime, $\tau$, as a function of phosphor temperature, $T$, between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}. All error bars are scaled by a factor of $e^{3}$ for visibility. Errors are also presented in tabular form.} \label{fig:fig2}
+        \caption{Phosphor decay lifetime, $\tau$, as a function of phosphor temperature, $T$, between \SI{-10}{\degreeCelsius} and \SI{100}{\degreeCelsius}. All error bars are scaled by a factor of $e^{3}$ for visibility. Errors are also presented in tabular form in Table \ref{tab:sample}.} \label{fig:fig2}
     \end{figure}
 
 At each temperature value, we averaged our three calculated time constants and found the standard error of the mean for each point, combining it in quadrature with the mean of the fitting uncertainties\footnote{Our error bars were quite small relative to the change in temperature, so they were artificially inflated when plotting.}. On a logarithmic axis, we plotted the decrease in fluorescence as a function of temperature, finding that the decay constant, $\tau$, decreased exponentially with temperature within this region (Figure\,\ref{fig:fig2}), indicating the increasing availability of non-fluorescent de-excitation pathways for the \ce{^{5}D_{i}} energy levels at higher temperatures.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+\hline
+   Avg. Temp., $\overline{T}\ (\mathrm{^{\circ}C})$ &   Avg. dec. lifetime, $\overline{\tau}\ (\upmu \mathrm{s})$ &   Dec. lifetime unc., $\sigma_{\tau}$ \\
+\hline
+      -10.1    &           553    &                      1.51    \\
+        0.0667 &           312    &                      0.641   \\
+       10.0    &           195    &                      0.420   \\
+       20.2    &           111    &                      0.219   \\
+       30.1    &            66.7  &                      0.116   \\
+       40      &            37.7  &                      0.0968  \\
+       50      &            24.5  &                      0.0519  \\
+       59.9    &            14.2  &                      0.0613  \\
+       70.1    &             8.5  &                      0.0349  \\
+       80.2    &             5.13 &                      0.0237  \\
+       90      &             3.43 &                      0.014   \\
+      100      &             2.59 &                      0.00578 \\
+\hline
+\end{tabular}
+\caption{Table of values and associated errors.}
+\label{tab:sample}
+\end{table}
 
 \printbibliography
 
