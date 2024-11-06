@@ -66,14 +66,14 @@ where R is the resistance of the sample.
  
 The first step in initiating this experiment is to ensure that the water pump is activated to cool the Hall magnet, which generates the magnetic field. Next, all equipment—including the power supplies, multimeters, and Gaussmeter—should be powered on. The Sorensen magnet power supply provides current to the magnet's coils and the Pasco power supply maintains a current across the selected sample. The multimeter will be used to measure the voltage across the sample, while the Gaussmeter will measure the strength of the magnetic field passing through the sample.
 
-The next crucial step is to prepare both the software and the sample for measurement. On the computer, we launched the HallScan program, developed in LabView, and set the initial parameters. The magnetic field strength were scanned over a range of 2 to 10 kG (kilogauss), collecting 10 data points. However, for the nickel sample, the number of data points were increased to 15 for enhanced precision. The conductor samples to be scanned include copper (Cu), aluminum (Al), iron (Fe), nickel (Ni), and molybdenum (Mo), each of which were mounted on a holder positioned between the poles of the Hall magnet. The semi-conductor samples are silicon (Si) and germanium, Ge-100 and Ge-111. It is important to ensure consistent orientation when mounting the sample and connecting the ± cables. This consistency is crucial for maintaining the same sign on the Hall coefficient throughout the experiment, ensuring reliable and comparable results.
+The next crucial step is to prepare both the software and the sample for measurement. On the computer, we launched the HallScan program, developed in LabView, and set the initial parameters. The magnetic field strength was scanned over a range of 2 to 10 kG (kilogauss), collecting 10 data points. However, for the nickel sample, the number of data points were increased to 15 for enhanced precision. The conductor samples to be scanned include copper (Cu), aluminum (Al), iron (Fe), nickel (Ni), and molybdenum (Mo), each of which were mounted on a holder positioned between the poles of the Hall magnet. The semiconductor samples are silicon (Si) and germanium, Ge-100 and Ge-111. It is important to ensure consistent orientation when mounting the sample and connecting the ± cables. This consistency is crucial for maintaining the same sign on the Hall coefficient throughout the experiment, ensuring reliable and comparable results.
 }
 
 \section*{Analysis \& Results}
 {
 For our data analysis, we opted to convert the data file format sequentially from $.txt$ to $.csv$, and ultimately to $.root$, thereby enabling us to utilize CERN's data analysis tool, ROOT.
 
-We plot the measured Hall voltage ($V_{H}$) against the magnetic field strength ($B_{\text{meas}}$). We anticipated a linear relationship as $B_{\text{meas}}$ approaches infinity. Knowing this we fit data points using ROOT's $\texttt{TF1}$ function, and obtain a best-fit slope and y-intercept for each graph.
+We plot the measured Hall voltage ($V_{H}$) against the magnetic field strength ($B_{\text{meas}}$). We anticipated a linear relationship as $B_{\text{meas}}$ approaches infinity. Knowing this we fit data points using ROOT's $\texttt{TF1}$ function and obtain a best-fit slope and y-intercept for each graph.
 
 Before we could further analyze the data, we had to first multiply the best-fit slope by $1 \times 10^{-6}$ to convert the units from [$\frac{\text{mV}}{\text{kG}}$] to [$\frac{\text{V}}{\text{G}}$]. Similarly, for the y-intercept, we multiply by $1 \times 10^{-3}$ to convert from [$\text{mV}$] to [$\text{V}$]. Also, it was important to note that the relationship in Eq.~\eqref{eq:linear_hall} is in slope-intercept form ($y = mx + b$). So, by equating the corresponding terms, we derive Eqs.~\eqref{eq:hall_slope} and \eqref{eq:hall_y}:
 \begin{equation}\label{eq:hall_slope}
@@ -86,7 +86,7 @@ From these equations, we use the given thickness of each sample and the current 
 
 For the conductors, measurements were taken at three different currents: 6, 7.5, and 9 Amps. For the semiconductors, measurements were performed at 0.1, 0.5, 1, 5, and 10 Amps.
 
-In Table \ref{tab:hall_hv_resis}, we computed the average Hall coefficient $R_H$ and resistance $R$ for each element at the various currents. The measured values for copper (Cu) and molybdenum (Mo) were reasonably close to the accepted values. However, the measurements for iron (Fe) and nickel (Ni) showed significant deviations from the accepted values, and were not within the margin of error, although, they shared the same sign. Based on the sign of the Hall coefficient, we can conclude that electron holes are the charge carriers for Fe and Mo, while electrons are the charge carriers for Cu and Ni.
+In Table \ref{tab:hall_hv_resis}, we computed the average Hall coefficient $R_H$ and resistance $R$ for each element at the various currents. The measured values for copper (Cu) and molybdenum (Mo) were reasonably close to the accepted values. However, the measurements for iron (Fe) and nickel (Ni) showed significant deviations from the accepted values and were not within the margin of error, although, they shared the same sign. Based on the sign of the Hall coefficient, we can conclude that electron holes are the charge carriers for Fe and Mo, while electrons are the charge carriers for Cu and Ni.
 
 For semiconductors, the Hall constant and resistance were significantly higher than those observed in the conductors, which is expected due to the intrinsic properties of semiconductors, such as the presence of a band gap. In all the semiconductor samples, electrons can be identified as the charge carriers.
 
@@ -99,7 +99,7 @@ Potential sources of error in this experiment include the calibration of the mea
 
 \section*{Summary}
 {
-The experiment aimed to investigate the Hall effect by observing how charge carriers in various materials respond to a magnetic field under different current values. Conductors such as copper, aluminum, iron, nickel, and molybdenum, as well as semiconductors like silicon and germanium, were tested. The Hall voltage  was plotted against magnetic field strength and analyzed to calculate the Hall coefficient and resistance for each material. 
+The experiment aimed to investigate the Hall effect by observing how charge carriers in various materials respond to a magnetic field under different current values. Conductors such as copper, aluminum, iron, nickel, and molybdenum, as well as semiconductors like silicon and germanium, were tested. The Hall voltage was plotted against magnetic field strength and analyzed to calculate the Hall coefficient and resistance for each material. 
 }
 
 
@@ -112,13 +112,13 @@ sample & $R_H ({\Omega} cm/G)$  &  $\pm \sigma_{H}$ & accepted $R_H ({\Omega}cm/
 Cu & $-3.45E^{-13}$ & $1.28E^{-13}$ & $-0.5E^{-12}$ & $8.18E^{-6}$ & $1.15E^{-7}$ \\
 Fe & $5.31E^{-12}$ & $4.98E^{-14}$ & $11E^{-12}$ & $5.31E^{-12}$ & $4.39E^{-7}$ \\
 Mo & $1.47E^{-12}$ & $1.13E^{-13}$ & $1.3E^{-12}$ & $-1.12E^{-4}$ & $5.73E^{-7}$ \\
-Ni & $-4.43E^{-13}$ & $4.65E^{-13}$ & $-5.1E{-12}$ & $-4.20E^{-5}$ & $5.30E^{-6}$ \\
+Ni & $-4.43E^{-13}$ & $4.65E^{-13}$ & $-5.1E^{-12}$ & $-4.20E^{-5}$ & $5.30E^{-6}$ \\
 Cu-PCB & $-8.81E^{-14}$ & $4.41E^{-15}$ & & $6.06E^{-6}$ & $2.91E^{-7}$ \\
 Ge-111 & $-5.46E^{-5}$ & $8.99E^{-5}$ & & $7.89$ & $9.83$ \\
 Ge-100 & $-1.38E^{-2}$ & $2.77E^{-2}$ & &  $-3.07E^{2}$ & $5.75E^{2}$ \\
 Si & $-2.26E^{-3}$ & $3.39E^{-3}$ & & $1.54E^{1}$ & $2.57E^{1}$ \\
 \end{tabular}
-\caption{Average Hall coeffecient and resistance for currents 6, 7.5, and 9 Amps (for conductors)c- as well as 0.1, 0.5, 1, 5 and 10 Amps for semiconductors}
+\caption{Average Hall coefficient and resistance for currents 6, 7.5, and 9 Amps (for conductors)c- as well as 0.1, 0.5, 1, 5 and 10 Amps for semiconductors}
 \label{tab:hall_hv_resis}
 \end{table}
 
