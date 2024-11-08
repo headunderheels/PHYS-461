@@ -1,0 +1,97 @@
+\documentclass[12pt]{report}
+
+\input{preamble.tex}
+
+\title{\textbf{Pulsed Nuclear Magnetic Resonance} \\\vspace{-0.6cm}}
+\date{
+    November 8, 2024 \\\vspace{0.5cm}
+    \large{PHYS 461}
+}
+\author{
+    \ul{Micah Hillman} \and Cordney Nash
+}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+{
+    Pulsed nuclear magnetic resonance (\textsc{pnmr}) is a method for probing the dynamics of small-scale structures like molecules and nuclei using radiofrequency (\textsc{rf}) energy pulses in the presence of a constant, strong magnetic field, $\bm{B}_0 \parallel \hat{\mathrm{z}}$. Protons in certain nonpolar samples can be aligned along $\bm{B}_0$ and subjected to \textsc{rf} pulses that transiently alter their alignment, rotating their spins into the $\hat{\mathrm{x}}$–$\hat{\mathrm{y}}$ plane, where they begin to precess around an effective magnetic field, $\bm{B}_1$. This precession induces a voltage in a receiver solenoid that detects the oscillating induced magnetic field in the $\hat{\mathrm{x}}$–$\hat{\mathrm{y}}$ plane. Over time, the magnetization vector relaxes back to its equilibrium state along $\bm{B}_0$ through two primary energy-transfer mechanisms: \textbf{spin–lattice relaxation}—where energy is transferred to the molecular lattice—and \textbf{spin–spin relaxation}—where energy is exchanged among the spins of other nuclei. Both of these pathways have associated characteristic timescales called ``relaxation times'' ($T_1$ and $T_2$, respectively); in this experiment, we used a TeachSpin\textsuperscript{\tiny\textregistered} \textsc{nmr} apparatus to measure $T_1$ and $T_2$ for both glycerin and mineral oil samples.
+}
+
+\section*{Theory}
+{
+    The intrinsic spin of a proton generates a magnetic moment $\bm{\mu}$ which interacts with external magnetic fields. When a magnetic field $\bm{B}_0$ is applied, the magnetic moments of the protons tend to align with $\bm{B}_0 \parallel \hat{\mathrm{z}}$, minimizing their potential energy. With orthogonal \textsc{rf} pulses, we can rotate their spins into the $\hat{\mathrm{x}}$–$\hat{\mathrm{y}}$ plane, initiating a precession around $\bm{B}_1$, the effective magnetic field due to the \textsc{rf} pulses. The angle of this rotation, known as the \ul{flip angle}, can be modulated by the duration and amplitude of the \textsc{rf} pulse. When the pulse frequency matches the \ul{Larmor frequency},\footnote{The natural frequency of the proton's precession.} the spins resonate, rotating away from their equilibrium alignment with $\bm{B}_0$. The duration of the \textsc{rf} pulse determines how far the spins rotate, allowing for the accurate manipulation of spin dynamics essential for \textsc{pnmr} experiments.
+
+    The behavior of the resonance in both spin–lattice (\ref{eq:1}) and spin–spin (\ref{eq:2}) relaxation can be described as functions of the \ul{pulse interval}\footnote{The time interval between consecutive \textsc{rf} pulses.} $\Delta t$:
+    \begin{equation}
+        V = V_{0} \left( 1 - 2e^{-\Delta t/T_{1}} \right)\!,
+        \label{eq:1}
+    \end{equation}
+    \begin{equation}
+        V = V_{0} \left( e^{\Delta t / T_{2}} \right)\!,
+        \label{eq:2}
+    \end{equation}
+}
+
+\section*{Methods}
+{
+    We found the spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}).
+}
+
+\section*{Results}
+{
+    Using the Python fitting package \code{scipy.optimize}, we performed regression fittings (\textbf{Figure~ \ref{fig:fit-plots}}) to find spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}), which are compiled in \textbf{Table\ \ref{tab:relaxation-times}.}
+}
+
+\begin{figure}[tbh]
+    \centering
+    % First Row
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{sl-glycerin.png}
+        \caption{Spin–lattice (\textsc{sl}), glycerin.}
+        \label{fig:sl-glycerin}
+    \end{subfigure}
+    \hspace{0.02\textwidth} % Reduced horizontal space between columns
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ss-glycerin.png}
+        \caption{Spin–spin (\textsc{ss}), glycerin.}
+        \label{fig:ss-glycerin}
+    \end{subfigure}
+    
+    \vspace{\baselineskip} % Vertical space between rows
+    
+    % Second Row
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{sl-mineral_oil.png}
+        \caption{Spin–lattice (\textsc{sl}), mineral oil.}
+        \label{fig:sl-mineral-oil}
+    \end{subfigure}
+    \hspace{0.02\textwidth} % Reduced horizontal space between columns
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ss-mineral_oil.png}
+        \caption{Spin–spin (\textsc{ss}), mineral oil.}
+        \label{fig:ss-mineral-oil}
+    \end{subfigure}
+    
+    \caption{Comparison of spin–lattice (\textsc{sl}) and spin–spin (\textsc{ss}) relaxation measurements for glycerin and mineral oil samples. Each plot shows the decay of voltage, $V$, versus the \textsc{rf} pulse interval, $\Delta t$. Best fit values for $T_1$ and $T_2$ are shown in \textbf{Table~\ref{tab:relaxation-times}}.}
+    \label{fig:fit-plots}
+\end{figure}
+
+\begin{table}[tbh]
+    \centering
+    \begin{tabular}{rccc}
+         \textbf{Material}   && $T_1$ (s) & $T_2$ (s) \\ \hline
+        Glycerin    && $(2.02 \pm 0.000\,000\,4) \times 10^{-2}$ & $(8.55 \pm 1.52) \times 10^{-3}$ \\
+        Mineral Oil && $(4.04 \pm 0.000\,000\,006) \times 10^{-2}$ & $(2.16 \pm 0.015) \times 10^{-2}$ \\
+    \end{tabular}
+    \caption{Relaxation times $T_1$ and $T_2$ for glycerin and mineral oil, with associated measurement errors. Associated fit plots are shown in \textbf{Figure~\ref{fig:fit-plots}}.}
+    \label{tab:relaxation-times}
+\end{table}
+
+
+\end{document}

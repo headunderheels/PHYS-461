@@ -1,0 +1,58 @@
+% Font and text formatting packages
+\usepackage{microtype} % Improved text alignment and spacing
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage{XCharter} % XCharter font
+\usepackage[scaled]{beramono} % Monospaced font styling
+% \usepackage[italic]{mathastext} % Italicizes math in text font for consistency
+
+% Conditional checking
+\usepackage{etoolbox}
+
+% Enhanced typography
+\usepackage[normalem]{ulem} % Underlining
+\usepackage{contour} % Outline text (used with \contour command)
+\usepackage{xpatch} % Enables patching commmands for typographical modifications
+\usepackage{bm} % Italic bold
+
+% Scientific notation and chemical formulas
+\usepackage[version=4]{mhchem} % For chemical notation
+\usepackage{siunitx} % Consistent handling of units
+
+% Graphics
+\usepackage{graphicx} % Essential for including images
+\usepackage{subcaption} % Subfigures and subcaptions
+\graphicspath{{./images/}} % Path for images directory
+
+% Document layout
+\usepackage[margin=1in]{geometry} % 1-inch margins
+\usepackage{multicol} % Multi-column layouts
+
+% Custom captions formatting
+\usepackage{caption}
+\DeclareCaptionFormat{custom}{\textbf{#1.} #3}
+\captionsetup{format=custom}
+
+% Custom underlining with contour effect
+\contourlength{1.7pt} % Default contour length
+\NewDocumentCommand{\ul}{O{2.62pt} O{0.45pt} O{1.5pt} m}{%
+  \begingroup%
+  \renewcommand\ULdepth{#1}%
+  \renewcommand\ULthickness{#2}%
+  \contourlength{#3}%
+  \uline{\phantom{#4}}\llap{\contour*{white}{#4}}%
+  \endgroup%
+}
+
+% Additional custom commands
+\def\code#1{\texttt{#1}} % Inline code styling
+\newcommand{\goldenRatio}{1.6180} % Golden ratio constant
+\newcommand{\inverseGoldenRatio}{0.6180} % Inverse golden ratio constant
+
+% Define automatic kerning for footnotes next to punctuation
+\makeatletter
+\xpatchcmd{\@makefnmark}{\hss}{\kern-0.5em\hss}{}{}
+\makeatother
+
+% Automatic extra spacing around em-dashes
+\xpretocmd{\textemdash}{\hspace{0.1em}}{}{}
+\xapptocmd{\textemdash}{\hspace{0.1em}}{}{}
