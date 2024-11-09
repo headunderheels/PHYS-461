@@ -42,8 +42,10 @@
         \caption{A sketched diagram of the experimental apparatus.}
         \label{fig:experiment-diagram}
     \end{figure}
+
+    The materials required for this experiment include the TeachSpin\textsuperscript{\tiny\textregistered} \textsc{nmr} apparatus, nonpolar sample materials (glycerin and mineral oil), an \textsc{rf} signal generator, an oscilloscope, a signal mixer, and wiring. The \textsc{nmr} apparatus itself is most importantly composed of a set of orthogonal solenoidal coils—an \textsc{rf} transmitter coil and a receiver coil—and a permanent magnet responsible for the field $\bm{B}_0$.
     
-    We measured the spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of hydrogen in the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}), conducting our observations using the TeachSpin\textsuperscript{\tiny\textregistered} \textsc{nmr} apparatus shown in \textbf{Figure~\ref{fig:experiment-diagram}}. After inserting the chosen sample, we initiated each experiment by calibrating the signal generator’s reference frequency to align with the receiver coil signal, adjusting for a minimum beat frequency on the oscilloscope’s second channel (using an appropriate zoom level) using the provided signal mixer (not pictured).
+    We measured the spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of hydrogen in the non-polar molecules \textbf{glycerin} and \textbf{mineral oil}, conducting our observations using the TeachSpin\textsuperscript{\tiny\textregistered} \textsc{nmr} apparatus shown in \textbf{Figure~\ref{fig:experiment-diagram}}. After inserting the chosen sample, we initiated each experiment by calibrating the signal generator’s reference frequency to align with the receiver coil signal, adjusting for a minimum beat frequency on the oscilloscope’s second channel (using an appropriate zoom level) using the provided signal mixer (not pictured).
 
     In both \textsc{sl} and \textsc{ss} relaxation, we used a series of two pulses to manipulate the sample and isolate the chosen energy transfer pathway.
     \subsection*{Spin–Lattice Relaxation}
@@ -63,57 +65,63 @@
 
 \section*{Results}
 {
-    Using the Python fitting package \code{scipy.optimize}, we performed regression fittings (\textbf{Figure~ \ref{fig:fit-plots}}) to find spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}), which are compiled in \textbf{Table\ \ref{tab:relaxation-times}.} 
+    Using the Python fitting package \code{scipy.optimize}, we performed regression fittings (shown in \textbf{Figure~\ref{fig:fit-plots}}) to find spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} and \textbf{mineral oil}, which are compiled in \textbf{Table\ \ref{tab:relaxation-times}.} 
+    
+    Note that the errors included in the raw data are only due to the inherent fluctuation of the oscilloscope data, and do not pay mind to any systematic errors that could be present due to sample conditions or uncalibrated lab equipment. As such, and to avoid overfitting, we included an error floor of \SI{0.06}{\volt} to account for errors otherwise unaccounted for and ensure a somewhat more realistic estimate of errors.
+    
+    \begin{table}[tbh]
+        \centering
+        \begin{tabular}{rccc}
+             \textbf{Material}   && $T_1$ (s) & $T_2$ (s) \\ \hline
+            Glycerin    && $(2.226 \pm 0.003) \times 10^{-2}$ & $(9.159 \pm 0.108) \times 10^{-3}$ \\
+            Mineral Oil && $(4.043 \pm 0.026) \times 10^{-2}$ & $(2.157 \pm 0.015) \times 10^{-2}$ \\
+        \end{tabular}
+        \caption{Relaxation times $T_1$ and $T_2$ for glycerin and mineral oil, with associated measurement errors. Associated fit plots are shown in \textbf{Figure~\ref{fig:fit-plots}}.}
+        \label{tab:relaxation-times}
+    \end{table}
+
+    Findings could be potentially improved with the inclusion of temperature control or deeper error analysis (and calibration). Overall, however, these findings demonstrate the usefulness of \textsc{pnmr} for understanding relaxation dynamics and probing the molecular scale. 
+    
+    \begin{figure}[tbh]
+        \centering
+        % First Row
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{sl-glycerin.png}
+            \caption{Spin–lattice (\textsc{sl}), glycerin.}
+            \label{fig:sl-glycerin}
+        \end{subfigure}
+        \hspace{0.02\textwidth} % Reduced horizontal space between columns
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{ss-glycerin.png}
+            \caption{Spin–spin (\textsc{ss}), glycerin.}
+            \label{fig:ss-glycerin}
+        \end{subfigure}
+        
+        \vspace{\baselineskip} % Vertical space between rows
+        
+        % Second Row
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{sl-mineral_oil.png}
+            \caption{Spin–lattice (\textsc{sl}), mineral oil.}
+            \label{fig:sl-mineral-oil}
+        \end{subfigure}
+        \hspace{0.02\textwidth} % Reduced horizontal space between columns
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{ss-mineral_oil.png}
+            \caption{Spin–spin (\textsc{ss}), mineral oil.}
+            \label{fig:ss-mineral-oil}
+        \end{subfigure}
+        
+        \caption{Comparison of spin–lattice (\textsc{sl}) and spin–spin (\textsc{ss}) relaxation measurements for glycerin and mineral oil samples. Each plot shows the decay of voltage, $V$, versus the \textsc{rf} pulse interval, $\Delta t$. Best fit values for $T_1$ and $T_2$ are shown in \textbf{Table~\ref{tab:relaxation-times}}.}
+        \label{fig:fit-plots}
+    \end{figure}
+    
 }
 
-\begin{figure}[tbh]
-    \centering
-    % First Row
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{sl-glycerin.png}
-        \caption{Spin–lattice (\textsc{sl}), glycerin.}
-        \label{fig:sl-glycerin}
-    \end{subfigure}
-    \hspace{0.02\textwidth} % Reduced horizontal space between columns
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{ss-glycerin.png}
-        \caption{Spin–spin (\textsc{ss}), glycerin.}
-        \label{fig:ss-glycerin}
-    \end{subfigure}
-    
-    \vspace{\baselineskip} % Vertical space between rows
-    
-    % Second Row
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{sl-mineral_oil.png}
-        \caption{Spin–lattice (\textsc{sl}), mineral oil.}
-        \label{fig:sl-mineral-oil}
-    \end{subfigure}
-    \hspace{0.02\textwidth} % Reduced horizontal space between columns
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{ss-mineral_oil.png}
-        \caption{Spin–spin (\textsc{ss}), mineral oil.}
-        \label{fig:ss-mineral-oil}
-    \end{subfigure}
-    
-    \caption{Comparison of spin–lattice (\textsc{sl}) and spin–spin (\textsc{ss}) relaxation measurements for glycerin and mineral oil samples. Each plot shows the decay of voltage, $V$, versus the \textsc{rf} pulse interval, $\Delta t$. Best fit values for $T_1$ and $T_2$ are shown in \textbf{Table~\ref{tab:relaxation-times}}.}
-    \label{fig:fit-plots}
-\end{figure}
-
-\begin{table}[tbh]
-    \centering
-    \begin{tabular}{rccc}
-         \textbf{Material}   && $T_1$ (s) & $T_2$ (s) \\ \hline
-        Glycerin    && $(2.21 \pm 0.03) \times 10^{-2}$ & $(8.55 \pm 1.52) \times 10^{-3}$ \\
-        Mineral Oil && $(4.04 \pm 0.000\,000\,006) \times 10^{-2}$ & $(2.16 \pm 0.015) \times 10^{-2}$ \\
-    \end{tabular}
-    \caption{Relaxation times $T_1$ and $T_2$ for glycerin and mineral oil, with associated measurement errors. Associated fit plots are shown in \textbf{Figure~\ref{fig:fit-plots}}.}
-    \label{tab:relaxation-times}
-\end{table}
 
 
 \end{document}
