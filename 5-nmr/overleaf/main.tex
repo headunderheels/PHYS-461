@@ -5,7 +5,7 @@
 \title{\textbf{Pulsed Nuclear Magnetic Resonance} \\\vspace{-0.6cm}}
 \date{
     November 8, 2024 \\\vspace{0.5cm}
-    \large{PHYS 461}
+    \large{\textsc{Modern Physics Lab}}
 }
 \author{
     \ul{Micah Hillman} \and Cordney Nash
@@ -29,19 +29,41 @@
         \label{eq:1}
     \end{equation}
     \begin{equation}
-        V = V_{0} \left( e^{\Delta t / T_{2}} \right)\!,
+        V = V_{0} \left( e^{-\Delta t / T_{2}} \right)\!,
         \label{eq:2}
     \end{equation}
 }
 
 \section*{Methods}
 {
-    We found the spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}).
+    \begin{figure}[tbh]
+        \centering
+        \includegraphics[width=6in]{5-nmr/overleaf/images/diagram.jpg}
+        \caption{A sketched diagram of the experimental apparatus.}
+        \label{fig:experiment-diagram}
+    \end{figure}
+    
+    We measured the spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of hydrogen in the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}), conducting our observations using the TeachSpin\textsuperscript{\tiny\textregistered} \textsc{nmr} apparatus shown in \textbf{Figure~\ref{fig:experiment-diagram}}. After inserting the chosen sample, we initiated each experiment by calibrating the signal generator’s reference frequency to align with the receiver coil signal, adjusting for a minimum beat frequency on the oscilloscope’s second channel (using an appropriate zoom level) using the provided signal mixer (not pictured).
+
+    In both \textsc{sl} and \textsc{ss} relaxation, we used a series of two pulses to manipulate the sample and isolate the chosen energy transfer pathway.
+    \subsection*{Spin–Lattice Relaxation}
+    {
+        In the \textsc{sl} case, we adjusted the primary (A) pulse to be at an amplitude minimum and the secondary (B) pulse to be at an amplitude maximum. We varied the time interval $\Delta t$ between these two pulses from \SI{1}{\milli\second} to \SI{100}{\milli\second} in steps of \SI{1}{\milli\second}, using the oscilloscope cursors to measure a lower and upper bound for the amplitude (voltage) of the B pulse at each time step. We then plotted $V_{\mathrm{B}}(\Delta t)$ with offset removal and derectification, performing a regression fitting using \textbf{Equation~\ref{eq:1}} as the fit function. An optimal $T_1$ was determined with associated errors based on the fit.
+    }
+    \subsection*{Spin–Spin Relaxation}
+    {
+        In the \textsc{ss} case, we adjusted the primary (A) pulse to be at an amplitude maximum and the secondary (B) pulse to be at an amplitude minimum. In this case, a third echo pulse delayed from the B pulse by the same time interval $\Delta t$ was adjusted to a maximum as a proxy for minimizing the B pulse. We varied the time interval $\Delta t$ between these two pulses from \SI{1}{\milli\second} to $\sim$\SI{40}{\milli\second} in steps of \SI{1}{\milli\second}, using the oscilloscope cursors to measure a lower and upper bound for the amplitude (voltage) of the echo pulse at each time step. We then plotted $V_{\mathrm{echo}}(\Delta t)$ with debiasing and derectification, performing a regression fitting using \textbf{Equation~\ref{eq:1}} as the fit function. An optimal $T_1$ was determined with associated errors based on the fit.
+    }
+
+    \subsection*{Debiasing and Derectification}
+    {
+        In both cases, we observed rectification (loss of +/- parity) due to what is effectively a vector projection into the sensitive plane of the pickup coil. We lose sign information here because $\bm{\mu}$ can point along $+\hat{\mathrm{z}}$ or $-\hat{\mathrm{z}}$ and look the same to the pickup coil. In order to rectify this,\footnote{\textit{Ba dum tss.}} we wrote debiasing and derectification functions using \code{pandas}, which we applied respectively to each dataset prior to fitting.
+    }
 }
 
 \section*{Results}
 {
-    Using the Python fitting package \code{scipy.optimize}, we performed regression fittings (\textbf{Figure~ \ref{fig:fit-plots}}) to find spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}), which are compiled in \textbf{Table\ \ref{tab:relaxation-times}.}
+    Using the Python fitting package \code{scipy.optimize}, we performed regression fittings (\textbf{Figure~ \ref{fig:fit-plots}}) to find spin-lattice and spin–spin relaxation times ($T_1$ and $T_2$, respectively) of Hydrogen within the non-polar molecules \textbf{glycerin} (\ce{C3H8O3}) and \textbf{mineral oil} (\ce{C16H10N2Na2O7S2}), which are compiled in \textbf{Table\ \ref{tab:relaxation-times}.} 
 }
 
 \begin{figure}[tbh]
