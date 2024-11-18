@@ -32,16 +32,37 @@
 
 \section*{Introduction}
 {
-In the Compton effect, an incoming photon collides elastically with an electron, resulting in the scattering of the photon with altered momentum and direction. The theory behind Compton scattering combines principles of relativistic and quantum mechanics, as it deals with massless photons and involves substantial energy transfers relative to the electron’s rest energy. While the Compton effect applies to photons of various energies, including visible light, this experiment focuses on higher-energy photons, specifically X-rays and gamma rays, to observe and analyze the effect more clearly. In the end we wish to determine the rest energy $E_0$ of the electron.
+In the Compton effect, an incoming photon collides elastically with an electron, resulting in the scattering of the photon with altered momentum and direction. The theory behind Compton scattering combines principles of relativistic and quantum mechanics, as it deals with massless photons and involves substantial energy transfers relative to the electron’s rest energy. While the Compton effect applies to photons of various energies, including visible light, this experiment focuses on higher-energy photons, specifically X-rays and gamma rays, to observe and analyze the effect more clearly. In the end, we wish to determine the rest energy $E_0$ of the electron.
 }
+
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=0.8\linewidth]{6-compton/images/Screenshot from 2024-11-16 17-29-02.png}
+    \caption{ \scriptsize{ Lead Shielding (LS), Scintillator (SC) \& Photon Multiplier (PM), Goniometer (GON), Radiation Source (RAD S), Multichannel Analyzer (MCA), Computer (COM).
+    }}
+    \label{fig:xray-diagram}
+\end{figure}
 
 \begin{multicols}{2}
 
 \section*{Theory \& Procedure}
 {
-The first step in starting the experiment is to open the UCS-30 MCA software and correctly calibrate the system. This is done with a Cesium-137 ($Cs-137$) and Sodium-22 ($Na-22$) radiation source. To effectively calibrate we need three peaks: the first two, 662 $keV$ and 32 $keV$, are found from $Cs-137$ and the third point at 511 $keV$ is found from $Na-22$. This calibration is done each day we decided to take measurements. We must also be sure that the High Voltage is set to 850, the Coarse Gain is set to 16 and, Fine Gain is shifted to 1.17.
+A photon, interacting with a stationary electron, transfers energy and momentum through an elastic-relativistic collision. The photon scatters at an angle $\theta$ while moving at a lower energy and momentum while the electron gains some kinetic energy. This phenomenon is governed by what is known as the laws of energy and momentum conservation, and due to the high-energy nature of the incoming gamma rays and their interactions, this whole process is framed within the context of relativistic mechanics.
 
-Before we can start the second step we must know that we are to measure from 10$^\circ$-110$^\circ$ in increments of 10$^\circ$. For each degree we must measure for 60 seconds. So for example, at 70$^\circ$ we must measure for 4,200 seconds. We must also know to take data with the scatterer on and removed, this will count as the spectrum and background respectively. The difference in these histograms are due purely to Compton scattering, meaning the noise is subtracted. The second major step is to simply measure, starting at 10$^\circ$. Once each measurement is done we are sure to save our data.  
+When trying to relate a scattered photon's energy to its initial energy and scattering angle we can use  Compton's equation,
+
+\begin{equation}
+    \frac{1}{E_0}[1-cos(\theta)] = \frac{1}{E'} - \frac{1}{E}
+\end{equation}
+where $\theta$ is the scattering angle, $E_0$ is the electron's rest energy, $E$ is the initial photon energy, and $E'$ is the energy of the scattered photon. This equation shows that the photon's energy loss depends on the scattering angle and the rest energy of the particle it interacts with. The maximum energy transfer to the electron corresponds to a scattering angle of $\theta$ = 180$^\circ$, while smaller $\theta$ correspond to less energy being transferred.
+
+At the heart of the detection process is the scintillation detector, which consists of a sodium iodide ($NaI$) crystal coupled to a photomultiplier tube (PMT). When a gamma ray interacts with the NaI crystal, it produces a flash of light (scintillation). This light is converted into electrons by the PMT’s photocathode, and these electrons are multiplied through a series of dynodes in the PMT, resulting in a measurable electric signal. The size of this signal is proportional to the energy deposited in the detector by the gamma-ray, enabling energy analysis of scattered photons.
+
+To record and analyze the signals, a multichannel analyzer (MCA) is used. The MCA sorts the electric signals into channels based on their voltage, which corresponds to the gamma ray’s energy. This allows the energy spectrum to be measured. A goniometer setup enables precise positioning of the detector at various scattering angles relative to the source and target. These components, combined with a computer-controlled DAQ system, allow for detailed measurement and analysis of the scattered gamma rays.
+
+The first step in starting the experiment is to open the UCS-30 MCA software and correctly calibrate the system. This is done with a Cesium-137 ($Cs-137$) and Sodium-22 ($Na-22$) radiation source. To effectively calibrate we need three peaks: the first two, 662 $keV$ and 32 $keV$, are found from $Cs-137$ and the third point at 511 $keV$ is found from $Na-22$. This calibration is done each day we decide to take measurements. We must also be sure that the High Voltage is set to 850, the Coarse Gain is set to 16 and, Fine Gain is shifted to 1.17.
+
+Before we can start the second step we must know that we are to measure from 10$^\circ$-110$^\circ$ in increments of 10$^\circ$. For each degree, we must measure for 60 seconds. So for example, at 70$^\circ$ we must measure for 4,200 seconds. We must also know to take data with the scatterer on and removed, this will count as the spectrum and background respectively. The difference in these histograms is due purely to Compton scattering, meaning the noise is subtracted. The second major step is to simply measure, starting at 10$^\circ$. Once each measurement is done we are sure to save our data.  
 }
 
 \section*{Analysis \& Results}
@@ -52,7 +73,7 @@ Before we can start the second step we must know that we are to measure from 10$
 
 \section*{Summary}
 {
-
+ In all we learned valuable insight about the Compton effect by measuring scattered gamma rays off a stationary electron and focusing on the relationship between the scattered photon’s energy, angle, and the electron’s rest energy. The results were analyzed to verify the validity of Compton's effect and determine a rest energy for the electron.
 }
 
 
