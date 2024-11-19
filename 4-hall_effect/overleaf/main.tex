@@ -52,7 +52,7 @@ direction. This flow remains steady in the absence of any external forces. Howev
 \begin{equation}
     \Vec{F}_{mag} = q(\Vec{v} \times \Vec{B})
 \end{equation}
-the charge carriers experience a vertical deflection. Depending on if the electron or electron-holes carry the charge the Lorentz force will defect the charge carrier according to the direction of ($\Vec{v} \times \Vec{B}$) and the sign on $q$, leading to an accumulation of charge at the vertical edges of the material. This charge imbalance results in a voltage difference across these edges. A multimeter can then be used to measure the magnitude of this voltage difference, as well as determine the sign of the voltage, which indicates whether the charge carriers are electrons or electron-holes. Positive voltage reflects that electron-holes are the carriers and negative voltage reflects that for electrons. 
+the charge carriers experience a vertical deflection. Depending on if the electron or holes carry the charge the Lorentz force will defect the charge carrier according to the direction of ($\Vec{v} \times \Vec{B}$) and the sign on $q$, leading to an accumulation of charge at the vertical edges of the material. This charge imbalance results in a voltage difference across these edges. A multimeter can then be used to measure the magnitude of this voltage difference, as well as determine the sign of the voltage, which indicates whether the charge carriers are electrons or holes. Positive voltage reflects that holes are the carriers and negative voltage reflects that for electrons. 
 
 The vertical component of the magnetic force can be used to determine the Hall coefficient, $R_H$. In the context of this experiment, the relationship is given by:
 \begin{equation}
@@ -82,11 +82,14 @@ m = \frac{R_H}{\delta}I \quad \Rightarrow \quad \frac{m\delta}{I}  = R_H
 \begin{equation}\label{eq:hall_y}
 b = RI \quad \Rightarrow \quad \frac{b}{I} = R
 \end{equation}
-From these equations, we use the given thickness of each sample and the current ($I$) measured for each sample to solve these derivations.
+\begin{equation}\label{eq:density}
+n = \frac{1}{\mid R_H \mid e}
+\end{equation}
+From these equations, we use the given thickness of each sample and the current ($I$) measured for each sample to solve these derivations. To find the carrier density $n$ we use Eqs.~\eqref{eq:density}
 
 For the conductors, measurements were taken at three different currents: 6, 7.5, and 9 Amps. For the semiconductors, measurements were performed at 0.1, 0.5, 1, 5, and 10 Amps.
 
-In Table \ref{tab:hall_hv_resis}, we computed the average Hall coefficient $R_H$ and resistance $R$ for each element at the various currents. The measured values for copper (Cu) and molybdenum (Mo) were reasonably close to the accepted values. However, the measurements for iron (Fe) and nickel (Ni) showed significant deviations from the accepted values and were not within the margin of error, although, they shared the same sign. Based on the sign of the Hall coefficient, we can conclude that electron holes are the charge carriers for Fe and Mo, while electrons are the charge carriers for Cu and Ni.
+In Table \ref{tab:hall_hv_resis}, we computed the average Hall coefficient $R_H$ and resistance $R$ for each element at the various currents. The measured values for copper (Cu) and molybdenum (Mo) were reasonably close to the accepted values. However, the measurements for iron (Fe) and nickel (Ni) showed significant deviations from the accepted values and were not within the margin of error, although, they shared the same sign. This deviation is due to Fe and Ni being ferromagnetic, so when subjected to a external magnetic field, a induced magnetic field $M$ is created inside of the metal, causing saturation and thus measurement interference. Based on the sign of the Hall coefficient, we can conclude that electron holes are the charge carriers for Fe and Mo, while electrons are the charge carriers for Cu and Ni.
 
 For semiconductors, the Hall constant and resistance were significantly higher than those observed in the conductors, which is expected due to the intrinsic properties of semiconductors, such as the presence of a band gap. In all the semiconductor samples, electrons can be identified as the charge carriers.
 
@@ -106,21 +109,37 @@ The experiment aimed to investigate the Hall effect by observing how charge carr
 
 \begin{table}[]
 \centering
-\begin{tabular}{c|c|c|c|c|c}
-sample & $R_H ({\Omega} cm/G)$  &  $\pm \sigma_{H}$ & accepted $R_H ({\Omega}cm/G)$ & $R$ & $\pm \sigma_{R}$ \\ \hline
+\begin{tabular}{c|c|c|c|c|c|c} 
+sample & $R_H ({\Omega} m/G)$  & $n$ &  $\pm \sigma_{H}$ & accepted $R_H ({\Omega}m/G)$ & $R$ & $\pm \sigma_{R}$ \\ \hline
 
-Cu & $-3.45E^{-13}$ & $1.28E^{-13}$ & $-0.5E^{-12}$ & $8.18E^{-6}$ & $1.15E^{-7}$ \\
-Fe & $5.31E^{-12}$ & $4.98E^{-14}$ & $11E^{-12}$ & $5.31E^{-12}$ & $4.39E^{-7}$ \\
-Mo & $1.47E^{-12}$ & $1.13E^{-13}$ & $1.3E^{-12}$ & $-1.12E^{-4}$ & $5.73E^{-7}$ \\
-Ni & $-4.43E^{-13}$ & $4.65E^{-13}$ & $-5.1E^{-12}$ & $-4.20E^{-5}$ & $5.30E^{-6}$ \\
-Cu-PCB & $-8.81E^{-14}$ & $4.41E^{-15}$ & & $6.06E^{-6}$ & $2.91E^{-7}$ \\
-Ge-111 & $-5.46E^{-5}$ & $8.99E^{-5}$ & & $7.89$ & $9.83$ \\
-Ge-100 & $-1.38E^{-2}$ & $2.77E^{-2}$ & &  $-3.07E^{2}$ & $5.75E^{2}$ \\
-Si & $-2.26E^{-3}$ & $3.39E^{-3}$ & & $1.54E^{1}$ & $2.57E^{1}$ \\
+Cu & $-3.45E^{-11}$ & $1.81E^{29}$  &$1.28E^{-13}$ & $-0.5E^{-10}$ & $8.18E^{-6}$ & $1.15E^{-7}$ \\
+Fe & $5.31E^{-10}$ & $1.8E^{28}$ & $4.98E^{-14}$ & $11E^{-10}$ & $5.31E^{-12}$ & $4.39E^{-7}$ \\
+Mo & $1.47E^{-10}$ & $4.25E^{28}$ & $1.13E^{-13}$ & $1.3E^{-10}$ & $-1.12E^{-4}$ & $5.73E^{-7}$ \\
+Ni & $-4.43E^{-11}$ & $1.41E^{29}$ & $4.65E^{-13}$ & $-5.1E^{-10}$ & $-4.20E^{-5}$ & $5.30E^{-6}$ \\
+Cu-PCB & $-8.81E^{-12}$ & $7.09E^{29}$ &  $4.41E^{-15}$ & & $6.06E^{-6}$ & $2.91E^{-7}$ \\
+Ge-111 & $-5.46E^{-3}$ & $1.14E^{21}$ & $8.99E^{-5}$ & & $7.89$ & $9.83$ \\
+Ge-100 & $-1.38$ & $4.53E^{18} $ & $2.77E^{-2}$ & &  $-3.07E^{2}$ & $5.75E^{2}$ \\
+Si & $-2.26E^{-1}$ & $2.77E^{19}$ & $3.39E^{-3}$ & & $1.54E^{1}$ & $2.57E^{1}$ \\
 \end{tabular}
-\caption{Average Hall coefficient and resistance for currents 6, 7.5, and 9 Amps (for conductors)c- as well as 0.1, 0.5, 1, 5 and 10 Amps for semiconductors}
+\caption{Average Hall coefficient and resistance for currents 6, 7.5, and 9 Amps (for conductors)c- as well as 0.1, 0.5, 1, 5 and 10 Amps for semiconductors. $\pm \sigma_{H}$ is found by taking the hall constant at the different currents' $I$ and finding the standard deviation between the measured values(which was done in excel). Cu-PCB has a different hall constant because this is electro-deposited copper.
+}
 \label{tab:hall_hv_resis}
 \end{table}
 
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=0.8\linewidth]{4-hall_effect/overleaf/images/Cu-PCB_6A_run1.pdf}
+    \caption{ \scriptsize{ 
+    }}
+    \label{fig:xray-diagram}
+\end{figure}
+
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=0.8\linewidth]{4-hall_effect/overleaf/images/Cu_6A_run1.pdf}
+    \caption{ \scriptsize{
+    }}
+    \label{fig:xray-diagram}
+\end{figure}
 
 \end{document}
