@@ -40,7 +40,7 @@ In the Compton effect, an incoming photon collides elastically with an electron,
     \includegraphics[width=0.8\linewidth]{6-compton/images/Screenshot from 2024-11-16 17-29-02.png}
     \caption{ \scriptsize{ Lead Shielding (LS), Scintillator (SC) \& Photon Multiplier (PM), Goniometer (GON), Radiation Source (RAD S), Multichannel Analyzer (MCA), Computer (COM).
     }}
-    \label{fig:xray-diagram}
+    \label{fig:compton-diagram}
 \end{figure}
 
 \begin{multicols}{2}
@@ -67,6 +67,13 @@ Before we can start the second step we must know that we are to measure from 10$
 
 \section*{Analysis \& Results}
 {
+For our analysis, we utilized CERN's data analysis tool, ROOT, to perform the necessary computations and fitting.
+
+As seen in Fig. \ref{fig:compton-plot} the relationship between $\frac{1}{E'}$ and $1-[cos(\theta)]$ is linearly dependent. By applying a linear fit to this relationship, we interpret the slope and intercept of the equation $y=mx+b$ as follows: m = $1/E_0$ and b = $1/E$, where $E_0$ is the rest energy of the stationary particle with which the photon interacted, and $E$ is the energy of the incoming gamma-ray photon. In this case, $E_0$ corresponds to the rest energy of the electron, and $E$ is 662 $keV$.
+
+When we use m and b, we find that the experimental rest mass of the electron is $E_0$ = 480 $keV$ and the energy of the photon is exactly the same as the accepted value, $E$ = 662 $keV$. The accepted value for the rest mass of an electron is 511 $keV$, which is not the same as our experimental value. We hypothesize that this deviation arises from anomalies in the data, particularly around $\theta = 80^{\circ}$, where a noticeable increase in the 1/E' value deviates from the expected trend. This anomaly likely introduced a slight error in the slope of the linear fit, thereby affecting the calculated $E_0$.
+
+of error may have stemmed from our experimental setup, particularly during system calibration. Any inaccuracies in selecting calibration points could have propagated through the analysis, further contributing to discrepancies in the experimental results.
 
 }
 \end{multicols}
@@ -76,6 +83,34 @@ Before we can start the second step we must know that we are to measure from 10$
  In all we learned valuable insight about the Compton effect by measuring scattered gamma rays off a stationary electron and focusing on the relationship between the scattered photon’s energy, angle, and the electron’s rest energy. The results were analyzed to verify the validity of Compton's effect and determine a rest energy for the electron.
 }
 
+\begin{table}[!]
+\centering
+\begin{tabular}{c|c|c|c|c|c} 
+$1-[cos(\theta)]$ (rads) & $1/E'$ (keV)$^{-1}$  & $\sigma_{1/E'}$ & $E$ (keV)  &$E_0$ (keV) & $\sigma_{E_0}$ \\ \hline
+
+1.52E-02 & 1.54E-03 & 2.10E-05 & 662 & 480 & 7.90E-5 \\
+6.03E-02 & 1.63E-03 & 5.50E-05 &  &  &  \\
+1.34E-01 & 1.79E-03 & 5.71E-05 &  &  & \\
+2.34E-01 & 1.99E-03 & 7.57E-05 &  &  &  \\
+3.57E-01 & 2.22E-03 & 1.04E-04 &  &  &  \\
+5.00E-01 & 2.51E-03 & 1.22E-04 &  &  &  \\
+6.58E-01 & 2.83E-03 & 1.45E-04 &  &  &  \\
+8.26E-01 & 3.60E-03 & 1.65E-04 &  &  &  \\
+1.00E+00 & 3.55E-03 & 1.73E-04 &  &  &  \\
+1.17E+00 & 3.91E-03 & 2.09E-04 &  &  &  \\
+1.34E+00 & 4.14E-03 & 2.10E-04 &  &  &  \\
+\end{tabular}
+\caption{}
+\label{tab:data_compton}
+\end{table}
+
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=1.0\linewidth]{6-compton/images/COMPTON-DATA.pdf}
+    \caption{ The x-axis is 1-cos($\theta$):  $\theta$ represents the angle (relative to the plane of attack) the photon reflects after the collision. The y-axis is 1/E' where E' is the energy of the scattered gamma-ray.
+    }
+    \label{fig:compton-plot}
+\end{figure}
 
 
 \end{document}
