@@ -27,26 +27,96 @@
 \begin{titlepage}
 \maketitle\vfill
 \end{titlepage}
-\newpage
+\newpage 
 
 
 \section*{Introduction}
 {
-
+The objective of this lab experiment was to investigate forces, specifically the gravitational force and we did this by replicating the Cavendish Experiment to determine an experimental universal gravitational constant ($G$). This was achieved using a torsion balance, a sophisticated frame to hold it, lasers, and lead ($Pb$) masses. This experiment functions by understanding the pull two masses have on each other. Additionally, by knowing the dimensions of the setup, a mathematical relationship can be derived to calculate the value of $G$
 }
 
-\begin{multicols}{2}
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=0.8\linewidth]{7-cavendish/overleaf/droc/images/cavendish_schem.PNG}
+    \caption{ \scriptsize{ controls for the placement of the lead balls (Con), lead balls (LB), pendulum mirror (Mir), laser (LZ), camera (CAM), and ruler (RUL). Henry (BIG HEN) is the frame that holds the torsion balance measurer and two small tungsten masses.
+    }}
+    \label{fig:compton-diagram}
+\end{figure}
+
+% \begin{multicols}{2}
 
 \section*{Theory \& Procedure}
 {
+At the heart of this experiment is a gravitational torsion balance, a special device that allows us to negate Earth's gravity while allowing for the precise measurement of exceptionally delicate forces. The torsion balance responds to a gravitational interaction by proportionally twisting a beryllium copper ribbon. In this situation that force is due to the gravitational pull two sets of large and small masses have on each other. That gravitational force is represented by:
+\begin{equation}\label{eq: Force_grav}
+    F_{grav} = G\frac{Mm}{r^2}
+\end{equation}
+where M and m are the mass of the large and small masses respectively, and
+r is the distance between their centers. Eq:\eqref{eq: Force_grav} is important because if we know that the torque in the torsion wire is:
+\begin{equation}\label{eq:torsion}
+    \tau = 2Fd
+\end{equation}
+we can substitute and get:
+\begin{equation}\label{eq:torsion_plus_grav}
+    \tau = 2G\frac{Mm}{r^2}d
+\end{equation}
 
+where d is the distance to the pivot point in the balance device. Eq:\eqref {eq:torsion_plus_grav} provides a direct relationship between the torsion in the balance as a function of the applied force $F_{grav}$. To further interpret this experiment, we must understand that across both ends the torque is $\Delta\tau = 2\tau$.
+
+It is also important to know that when studying torsion motion, this relationship for torque $\tau$:
+\begin{equation}\label{eq:change_in_torque}
+    \Delta\tau = -k\Delta\theta 
+\end{equation}
+can be shown, as $\theta$ is the angle the head is reflected by and $k$ is a torsion constant. The period associated with this torsion motion is:
+\begin{equation}\label{eq:toursion_perios}
+    t = 2\pi\sqrt{\frac{2md^2}{k}}
+\end{equation}
+
+In all, knowing all of this, equating Eq:\eqref{eq:change_in_torque} with $2\tau$ and taking into account the period $t$, we can end up at a relationship between G and known experimental parameters:
+\begin{equation}\label{eq:grav_constant}
+   G = \frac{2\pi^2r^2\lambda}{Mt^2}
+\end{equation}
+where $\lambda$ is the arc length.
+
+To initiate the experiment, ideally, the weights are rotated to one extreme for 90 minutes, which is around 5 full oscillations, causing the torsion balance to twist. After the time is up at this extreme point, we rotate the large masses to the other extrema for another 90 minutes. When collecting data we tracked laser deflections off a board sitting at $\sim$5.05 $m$ away from Henry. In our case, we recorded data by using a camera set to 1 picture every 20 seconds, which was positioned on the board. When done we combine the images into one singular video for further use.
 }
 
 \section*{Analysis \& Results}
 {
+In this experiment, we utilize a method similar to "Measurement by Equilibrium Position," as described in the torsion balance manual. We position two large masses at two extremes and by using a software called "Tracker" we measure the equilibrium point after what can be described as dampened oscillations. 
+
+The Tracker software can help us determine this equilibrium position by tracking the horizontal movement of the reflected laser through the video assembled earlier. The software calculates the position as a function of time and prints out what resembles a dampened sine wave. By using tools found in the Tacker software and knowing the physical properties of the system we can find:
+
+\noindent
+\\
+\\
+\begin{center}
+    {\begin{tabular}{c|c} \label{7-prop}
+t & 1031.613143 seconds \\
+M & 22.231 kilograms \\
+$\lambda$ & $1.116E^{-02}$ meters \\
+r & 0.14763 meters \\
+\end{tabular}}
+\end{center}
+
+\noindent
+This will allow us to plug into Eq:\eqref{eq:grav_constant} and get 
+\begin{equation}\label{eq:grav_constant_plus_constant}
+   G = \frac{2\pi^2(0.14763)^2(1.116E^{-02})}{(22.231)(1031.613143)^2\frac{1}{0.998}} = 2.033E^{-10} \quad [Nm^2/kg^2]
+\end{equation}
+where $\frac{1}{0.998}$ is a correction factor. This differs by 3\% from the accepted value $G = 6.67E^{-11} Nm^2/kg^2$. 
+
+We believed that possible sources of error may have been due to setting the extrema position slightly off at the beginning. If this offset is larger than $r$ this can cause a weak pull from the two masses. Other sources of error, although small, may be the mass of an elevator on the other side of a wall adjacent to Henry. The constant movement of this mass could cause slight deviations in the force the torsion wire picks up, thus potentially propagating an error through calculations. 
+
+
+in the tracker software >file> open file > video> clip settimng > frame rate = 20s (picture every 20s) > >set at 10 and 80 (cm) > length = 0.7m > track > new point mass> Track > mass A - footprint - radius = 10 (pixels) probaly > ctrl-shift on to the lazer> press search (this is where it tracks the lazer) >
+
+5980-760/5 = period for smaller peaks 
+to find the midpoint = 0.139  0.137   0.107
+
 
 }
-\end{multicols}
+% \end{multicols}
 
 \section*{Summary}
 {
