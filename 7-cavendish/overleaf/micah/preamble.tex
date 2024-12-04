@@ -32,6 +32,12 @@
 \DeclareCaptionFormat{custom}{\textbf{#1.} #3}
 \captionsetup{format=custom}
 
+
+\usepackage{csquotes} % Recommended for quotes in citations
+\usepackage[style=apa, backend=biber]{biblatex} % APA style citations
+\addbibresource{references.bib} % Reference file
+
+
 % Custom underlining with contour effect
 \contourlength{1.7pt} % Default contour length
 \NewDocumentCommand{\ul}{O{2.62pt} O{0.45pt} O{1.5pt} m}{%
