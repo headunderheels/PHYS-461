@@ -38,8 +38,8 @@ In the Compton effect, an incoming photon collides elastically with an electron,
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=0.8\linewidth]{6-compton/images/Screenshot from 2024-11-16 17-29-02.png}
-    \caption{ \scriptsize{ Lead Shielding (LS), Scintillator (SC) \& Photon Multiplier (PM), Goniometer (GON), Radiation Source (RAD S), Multichannel Analyzer (MCA), Computer (COM).
-    }}
+    \caption{  Lead Shielding (LS), Scintillator (SC) \& Photon Multiplier (PM), Goniometer (GON), Radiation Source (RAD S), Multichannel Analyzer (MCA), Computer (COM).
+    }
     \label{fig:compton-diagram}
 \end{figure}
 
@@ -74,7 +74,7 @@ For our analysis, we utilized CERN's data analysis tool, ROOT, to perform the ne
 
 As seen in Fig. \ref{fig:compton-plot} the relationship between $\frac{1}{E'}$ and $1-[cos(\theta)]$ is linearly dependent. By applying a linear fit to this relationship, we interpret the slope and intercept of the equation $y=mx+b$ as follows: m = $1/E_0$ and b = $1/E$, where $E_0$ is the rest energy of the stationary particle with which the photon interacted, and $E$ is the energy of the incoming gamma-ray photon. In this case, $E_0$ corresponds to the rest energy of the electron, and $E$ is 662 $keV$.
 
-To find E' (the energy of the scattered photon) we use special tools in the DAQ software that essentially allows us to find the peak in a Gaussian distribution. After finding this value we label it as E', this is done at every angle increment. At the same time, we look over to a quantity labeled "FW/HM" which means full-width at half-maximum. In this experiment, we divide this value by 2.355 to get the error $\sigma$ in E'.
+To find E' (the energy of the scattered photon) we use special tools in the DAQ software that essentially allow us to find the peak in a distribution like the ones shown in Fig (\ref{fig:compton40}), (\ref{fig:compton50}). After finding this value we label it as E', this is done at every angle increment. At the same time, we look over to a quantity labeled "FW/HM" which means full-width at half-maximum. In this experiment, we divide this value by 2.355 to get the error $\sigma$ in E'.
 
 When we use m and b, we find that the experimental rest mass of the electron is $E_0$ = 480 $keV$ and the energy of the photon is exactly the same as the accepted value, $E$ = 662 $keV$. The accepted value for the rest mass of an electron is 511 $keV$, which is not the same as our experimental value. We hypothesize that this deviation arises from anomalies in the data, particularly around $\theta = 80^{\circ}$, where a noticeable increase in the 1/E' value deviates from the expected trend. This anomaly likely introduced a slight error in the slope of the linear fit, thereby affecting the calculated $E_0$.
 
@@ -82,6 +82,7 @@ Another source of error may have stemmed from our experimental setup, particular
 
 }
 \end{multicols}
+
 
 \section*{Summary}
 {
@@ -116,6 +117,23 @@ $1-[cos(\theta)]$ (rads) & E' (keV) & $\sigma_{E'}$ & $1/E'$ (keV)$^{-1}$ & $\si
     }
     \label{fig:compton-plot}
 \end{figure}
+
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=0.9\linewidth]{6-compton/images/Counts vs. Energy (40°).pdf}
+    \caption{ This shows a histogram for the energy levels of scattered electrons. In this graph, the detector is set at an angle of 40$^\circ$ relative to the source.
+    }
+    \label{fig:compton40}
+\end{figure}
+
+\begin{figure}[tbh]
+    \centering
+    \includegraphics[width=0.9\linewidth]{6-compton/images/Counts vs. Energy (50°).pdf}
+    \caption{ This shows a histogram for the energy levels of scattered electrons. In this graph, the detector is set at an angle of 50$^\circ$ relative to the source.
+    }
+    \label{fig:compton50}
+\end{figure}
+
 
 
 \end{document}
