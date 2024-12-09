@@ -40,7 +40,7 @@ The objective of this lab experiment was to investigate forces, specifically the
     \includegraphics[width=0.8\linewidth]{7-cavendish/overleaf/droc/images/cavendish_schem.PNG}
     \caption{ \scriptsize{ controls for the placement of the lead balls (Con), lead balls (LB), pendulum mirror (Mir), laser (LZ), camera (CAM), and ruler (RUL). Henry (BIG HEN) is the frame that holds the torsion balance measurer and two small tungsten masses.
     }}
-    \label{fig:compton-diagram}
+    \label{fig:cavndish-diagram}
 \end{figure}
 
 % \begin{multicols}{2}
@@ -76,10 +76,19 @@ In all, knowing all of this, equating Eq:\eqref{eq:change_in_torque} with $2\tau
 \begin{equation}\label{eq:grav_constant}
    G = \frac{2\pi^2r^2\lambda}{Mt^2}
 \end{equation}
-where $\lambda$ is the arc length.
+where $\lambda \equiv d\Delta\theta$ and equals $4.004E^{-03}$ for trial 1 and $4.114E^{-03}$ for trial 2.
 
 To initiate the experiment, ideally, the weights are rotated to one extreme for 90 minutes, which is around 5 full oscillations, causing the torsion balance to twist. After the time is up at this extreme point, we rotate the large masses to the other extrema for another 90 minutes. When collecting data we tracked laser deflections off a board sitting at $\sim$5.05 $m$ away from Henry. In our case, we recorded data by using a camera set to 1 picture every 20 seconds, which was positioned on the board. When done we combine the images into one singular video for further use.
+
+
 }
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{7-cavendish/overleaf/droc/images/Capture.PNG}
+    \caption{ A screenshot of the Tracker software.}
+    \label{fig: cavendish tracker}
+\end{figure}
 
 \section*{Analysis \& Results}
 {
@@ -91,22 +100,31 @@ The Tracker software can help us determine this equilibrium position by tracking
 \\
 \\
 \begin{center}
-    {\begin{tabular}{c|c} \label{7-prop}
-t & 1031.613143 seconds \\
-M & 22.231 kilograms \\
-$\lambda$ & $1.116E^{-02}$ meters \\
-r & 0.14763 meters \\
-\end{tabular}}
+{\begin{tabular}{c|c}
+t & 1034.506571 seconds (s) $\pm$ 4.091925927 s\\
+M & 22.231 kilograms (kg) $\pm$ 2 kg\\
+$\lambda$ & $4.059E^{-03}$ meters (m) $\pm$ 0.00007824381571 m\\
+r & 0.14763 meters $\pm$ 0.0381 m\\
+\end{tabular}
+}
 \end{center}
 
 \noindent
-This will allow us to plug into Eq:\eqref{eq:grav_constant} and get 
-\begin{equation}\label{eq:grav_constant_plus_constant}
-   G = \frac{2\pi^2(0.14763)^2(1.116E^{-02})}{(22.231)(1031.613143)^2\frac{1}{0.998}} = 2.033E^{-10} \quad [Nm^2/kg^2]
-\end{equation}
-where $\frac{1}{0.998}$ is a correction factor. This differs by 3\% from the accepted value $G = 6.67E^{-11} Nm^2/kg^2$. 
+This table shows the average values of the parameters used in both trials to find $G$. But, I must note that the errors given for M and r are merely estimated errors I deemed appropriate. From each run, we can average the calculated $G$ by using Google Sheet's AVERAGE function and find a standard deviation by using their STD function. We get:
 
-We believed that possible sources of error may have been due to setting the extrema position slightly off at the beginning. If this offset is larger than $r$ this can cause a weak pull from the two masses. Other sources of error, although small, may be the mass of an elevator on the other side of a wall adjacent to Henry. The constant movement of this mass could cause slight deviations in the force the torsion wire picks up, thus potentially propagating an error through calculations. 
+\begin{center}
+{\begin{tabular}{c|c}
+$G$ & $7.354E^{-11} \pm 8.36E^{-13} \quad [Nm^2/kg^2]$ 
+\end{tabular}
+}
+\end{center}
+% \begin{equation}\label{eq:grav_constant_plus_constant}
+%    G = \frac{2\pi^2(0.14763)^2(1.116E^{-02})}{(22.231)(1031.613143)^2\frac{1}{0.998}} = 2.033E^{-10} \quad [Nm^2/kg^2]
+% \end{equation}
+% where $\frac{1}{0.998}$ is a correction factor. 
+This averaged value is within 5\% of the accepted value $G = 6.67E^{-11} Nm^2/kg^2$. 
+
+We believed that possible sources of error may have been due to setting the extrema position slightly off at the beginning. If this offset is larger than $r$ this can cause a weak pull from the two masses. Other sources of error, although small, maybe the mass of an elevator on the other side of a wall adjacent to Henry. The constant movement of this mass could cause slight deviations in the force the torsion wire picks up, thus potentially propagating an error through calculations. 
 
 }
 % \end{multicols}
@@ -116,6 +134,7 @@ We believed that possible sources of error may have been due to setting the extr
 This experiment aimed to replicate the Cavendish Experiment to determine the universal gravitational constant ($G$) by analyzing the gravitational attraction between two sets of masses using a torsion balance. By tracking laser deflections and calculating the equilibrium position after dampened oscillations, my lab partner and I derived G using a mathematical relationship between torque and gravitational force. Despite its obscure appearance, the experiment demonstrated the effectiveness of the Cavendish method for accurately measuring 
 $G$ and provided insights into the challenges of precise measurements of gravity-related physics.
 }
+
 
 
 
