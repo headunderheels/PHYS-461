@@ -11,7 +11,7 @@
     \ul{Micah Hillman} \and Cordney Nash
 }
 
-\begin{document}\spacing{1.25}
+\begin{document}\spacing{2}
 \maketitle
 
 \section*{Introduction}
@@ -37,39 +37,51 @@ The torsional constant (\( \kappa \)) can be expressed as
         \kappa = \frac{4GmMd}{r^2 \Delta \theta},
     \end{equation}
     so we can combine these two expressions (\ref{period},~\ref{torsion}) and isolate \(G\) in terms of observables and experimental parameters~\cite{BMS2024}:
-        \begin{equation}
+        \begin{equation}\label{G}
             G = \frac{2\pi^2r^2d\Delta\theta}{MT^2}. 
         \end{equation}
+    Note that \( d \Delta \theta \) is also the arc length \( s \) swept by the laser light across the board.
 
 
-\section*{Methods}
+\section*{Experimental Methods and Analysis}
 {
-    \begin{figure}[tbh]\centering
-        \begin{subfigure}[t]{\linewidth}
-          \centering
-          \includegraphics[width=\linewidth]{balance.jpeg}
-          \caption{Birds-eye illustration of the sealed torsional balance system and associated weights. Important components include both the small and large lead masses \(m\) and \(M\), a reflective mirror attached to the central portion of the torsional balance beam, and a laser light which is reflected across the room to a measuring stick. }\label{balance}
-        \end{subfigure}
-        \vspace{1px} % Adjust vertical spacing as needed
-        \begin{subfigure}[t]{\linewidth}
-          \centering
-          \includegraphics[width=\inverseGoldenRatio\linewidth]{board.jpeg}
-          \caption{Illustration depicting measurement. A camera (center) and meter stick (left, at a known distance) were used to capture the positon of laser light reflected from the mirror affixed to central axis of the torsional balance (right, and shown in figure~\ref{balance}).}\label{board}
-        \end{subfigure}
-        \caption{Two sketched views of the Cavendish apparatus. Figure~\ref{balance} shows components associated with torsional balance system, while figure~\ref{board} depicts components associated with measurement.}
-    \end{figure}
+Figure~\ref{apparatus} provides a sketched overview of the experimental apparatus; key experimental components include a hermetically sealed torsional balance (including one small lead mass on each end) and large, positionable \SI{22}{\kilo\gram} lead weights (to alter the torsional balance equilibrium). The measurement apparatus included a laser (reflected from a mirror mounted to the torsional balance's central axis), a measuring stick mounted to a positionable flat surface (for measuring said laser light position), a measuring tape for determining the distance of the measuring stick from the axis of the torsional balance, and finally a camera for recording the position of the laser light relative to the board-mounted meter stick.
+\begin{figure}[tbh]\centering
+    \begin{subfigure}[tbh]{\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{balance.jpeg}
+      \caption{Birds-eye illustration of the sealed torsional balance system and associated weights. Notable components include both the small and large lead masses \(m\) and \(M\), a reflective mirror attached to the central portion of the torsional balance beam, and a laser light which is reflected across the room to a measuring stick. }\label{balance}
+    \end{subfigure}
+    \vspace{1px} % Adjust vertical spacing as needed
+    \begin{subfigure}[tbh]{\linewidth}
+      \centering
+      \includegraphics[width=\inverseGoldenRatio\linewidth]{board.jpeg}
+      \caption{Illustration depicting measurement. A camera (center) and meter stick (left, at a known distance) were used to capture the positon of laser light reflected from the mirror affixed to central axis of the torsional balance (right, and shown in figure~\ref{balance}).}\label{board}
+    \end{subfigure}
+    \caption{Two sketched views of the Cavendish apparatus. Figure~\ref{balance} shows components associated with torsional balance system, while figure~\ref{board} depicts components associated with measurement.}\label{apparatus}
+\end{figure}
 
+Firstly, we mounted our meter stick on a board about 5 meters from the torsional balance's central axis, orienting said board roughly parallel with the plane of the balance's central mirror, recording the distance between the board and central axis of the balance (with uncertainty estimates).
+Next, a camera was set up to take photos of the board (and the incident laser light) every 20 seconds for a duration of 90 minutes—as soon as the large lead masses were positioned.
+A series of pulleys (not shown in diagram) were then used to slowly position the large lead masses (first clockwise) near the torsional balance, thereby changing the balance's equilibrium via gravitational forces.
+Once the masses were in place, the camera began recording the laser position at the specified interval.
+After the 90 minute duration elapsed, we repositioned the large masses, this time rotating them counterclockwise and again recording the balance's movement via the reflected laser light for the same duration.
+The laser light may be turned on at any time prior to the beginning of data taking.
 
-
-22kg lead sphere
+Laser light recorded from both orientations of the large masses was tracked digitally using an open-source tracking software, which allowed us to measure the horizontal movement of laser light associated with oscillation of the torsional balance. 
+The software's main deliverable for our purposes was a set of timeseries data representing the horizontal displacement of the laser light as a function of time. 
+From this timeseries data, we extracted the period and equilibrium of the oscillations for both mass orientations. In an Excel spreadsheet, we calculated \(G\) using expression~\ref{G}.
 }
 
-\section*{Results}
+\section*{Results and Discussion}
 {
-    
+    Using equation~\ref{G}, we found \(G\) to be about \SI[separate-uncertainty=true]{7.354 (.084) E-11}{\newton\meter\squared\per\square\kilogram}, which is within (how many \(\sigma\)?) of the accepted value of \SI{6.022E-11}{\newton\meter\squared\per\square\kilogram}. 
+    With an experiment that is reliant upon the influence of such a small force, it is easy for sources of error to become overwhelming, even those that are extremely small or imperceptible. 
+    It is possible that the extrema positions for the lead masses were asymmetric (\textit{i.e.} the distance \(r\) between the large masses and the torsion balance masses was not equal between the two trials). 
+    Also, the presence of nearby objects, especially massive or proximal ones like people (or elevators, in our case), can introduce a great degree of unpredictability to the system.
 }
 
-\spacing{1.2}
+% \spacing{1.2}
 \printbibliography{}
 
 \end{document}
